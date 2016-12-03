@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">La Vendimia</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="nav_sales">Ventas</string>
+    <string name="nav_client">Clientes</string>
+    <string name="nav_articles">Articulos</string>
+    <string name="nav_settings">Configuracion</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
