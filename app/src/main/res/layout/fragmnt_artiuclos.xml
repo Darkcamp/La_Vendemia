@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.vendimia.sanz.lavendimia.fragmnt_Artiuclos">
+    tools:context="com.vendimia.sanz.lavendimia.vendemia.fragments.fragmnt_Artiuclos">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

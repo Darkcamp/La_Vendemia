@@ -13,8 +13,13 @@
     tools:context="com.vendimia.sanz.lavendimia.Vendimia"
     tools:showIn="@layout/app_bar_vendimia">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+
+<!--se crea el fragmeto para poderlo sustuir con los demas, y dejar
+ un mensaje de vienvenida -->
+    <FrameLayout
+        android:id="@+id/fragment_start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    </FrameLayout>
 </RelativeLayout>

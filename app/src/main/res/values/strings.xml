@@ -5,13 +5,43 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-
+    <!-- para el menu lateral -->
     <string name="nav_sales">Ventas</string>
     <string name="nav_client">Clientes</string>
     <string name="nav_articles">Articulos</string>
     <string name="nav_settings">Configuracion</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- para los fragmentos msg buttns ect -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="msg_inicial">¡Bienvenido!</string>
+    <string name="msg_vendemia">La Vendemia</string>
+    <!-- ventas -->
+    <string name="btn_venta">Nueva Venta</string>
+    <string name="msg_vactivas">Ventas Activas</string>
+    <string name="msg_folioV">Folio Ventas</string>
+    <string name="msg_calveC">Clave Cliente</string>
+    <string name="msg_nombre">Nombre</string>
+    <string name="msg_total">Total</string>
+    <string name="msg_fecha">Fecha</string>
+    <string name="msg_status">Estatus</string>
+    <!-- registro ventas -->
+    <string name="tv_cliente">Cliente</string>
+    <string name="tv_articulo">Articulo</string>
+    <string name="dscrip_articulo">Descripcion Articulo</string>
+    <string name="tv_modelo">Modelo</string>
+    <string name="tv_cantidad">Cantidad</string>
+    <string name="tv_precio">Precio</string>
+    <string name="tv_importe">Importe</string>
+    <string name="foli_venta">Folio Venta:</string>
+    <string name="tv_engache">Enganche</string>
+    <string name="bnf_Engache">Bonificacion Engache</string>
+    <string name="number_folio">0000</string>
+    <string name="btn_agregar"></string>
+    <!-- Registro clientes -->
+    <string name="tv_name">Nombre</string>
+    <string name="tv_apellidP">Apellido Paterno</string>
+    <string name="tv_apellidM">Apellido Materno</string>
+    <string name="tv_RFC">RFC</string>
 
 </resources>
