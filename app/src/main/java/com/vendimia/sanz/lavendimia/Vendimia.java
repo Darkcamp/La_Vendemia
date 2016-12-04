@@ -16,8 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import dbvendimia.bdVendimia;
-import vendemia.fragments.fragmnt_Rventas;
+
 import vendemia.fragments.fragmnt_Ventas;
 import vendemia.fragments.startFragment;
 
@@ -32,7 +31,6 @@ public class Vendimia extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        usuarios();
 
       manager.beginTransaction().replace(R.id.fragment_start,new startFragment()).commit();
 
@@ -46,14 +44,7 @@ public class Vendimia extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    private void usuarios() {
-            bdVendimia bd = new bdVendimia(this);
-            bd.insertClient("juan","colin","duran","qwert1234qwe");
-           bd.insertClient("mario","suñiga","duran","qwerty1235jh");
-           bd.insertProduct("xdxdf","sillaop", (float) 123.45,3);
-        bd.insertProduct("holi","sillaops", (float) 123.45,3);
 
-    }
 
     @Override
     public void onBackPressed() {
