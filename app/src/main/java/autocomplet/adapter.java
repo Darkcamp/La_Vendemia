@@ -3,13 +3,19 @@ package autocomplet;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< Updated upstream
 import android.app.Activity;
+=======
+>>>>>>> Stashed changes
 import android.support.v4.app.FragmentActivity;
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
 
+<<<<<<< Updated upstream
 import vendemia.fragments.fragmnt_Rventas;
 
+=======
+>>>>>>> Stashed changes
 public class adapter extends ArrayAdapter<String> {
 
     protected static final String TAG = "SuggestionAdapter";
