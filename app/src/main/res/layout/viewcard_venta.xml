@@ -38,7 +38,8 @@
                 android:digits="0,1,2,3,4,5,6,7,8,9"
                 android:ems="10"
                 android:id="@+id/VC_cantidad"
-                android:hint="1" />
+                android:hint="1"
+                android:onClick="reload" />
 
             <TextView
                 android:text="@string/tv_precio"

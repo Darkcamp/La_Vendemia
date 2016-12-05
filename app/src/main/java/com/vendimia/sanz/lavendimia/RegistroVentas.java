@@ -26,11 +26,18 @@ import com.example.sanzlibrary1_0_1.ServerRequest;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+
+import static com.vendimia.sanz.lavendimia.R.id.ab_rbtn12;
+import static com.vendimia.sanz.lavendimia.R.id.ab_rbtn3;
+import static com.vendimia.sanz.lavendimia.R.id.ab_rbtn6;
+import static com.vendimia.sanz.lavendimia.R.id.ab_rbtn9;
 
 public class RegistroVentas extends AppCompatActivity implements AsynResponse {
 
@@ -38,16 +45,18 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse {
     //instancias
     GlobalSetGet GSG = GlobalSetGet.getInstance();
     List<cardViewDistribute> result;
+    formuls fm = new formuls();
 
     //variables de layout
     TextView tv_rfc,tv_fecha;
     AutoCompleteTextView cliente, articulo;
     ImageButton btn_add;
     RecyclerView RV_contenido;
-    LinearLayout eng,abono,end,next,l3,l6,l9,l12;
-    TextView a3,b3,c3,d3,a6,b6,c6,d6,a9,b9,c9,d9,a12,b12,c12,d12,exis;
-    RadioButton e3,e6,e9,e12;
-
+    LinearLayout engaches,abonos,next,end;
+    RadioButton rbtn_3,rbtn_6,rbtn_9,rbtn_12;
+    Button save;
+    TextView enga_engache,enga_bonificacion,enga_total;
+    TextView abonos_d3,abonos_d6,abonos_d9,abonos_d12,pagaa_d3,pagaa_d6,pagaa_d9,pagaa_d12,ahorra_3,ahorra_6,ahorra_9,ahorra_12;
     //variables de la clase
     DecimalFormat decimal;
     String JSONClientes,nombre,JSONProducts;
@@ -59,6 +68,11 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse {
     ArrayAdapter<String> adapter=null,adapter2=null;
     Double aun_importe,pMeses,meses3,meses6,meses9,meses12;
     String catidadExistente;
+    double engache,bonifiacion_engache,total;
+    double aux_engache,aux_tasita,aux_importe;
+    int aux_pm;
+    //globales ne la clase
+    double total_adeudo,precio_contado;
 
 
     @Override
@@ -72,6 +86,14 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse {
         btn_add=(ImageButton)findViewById(R.id.btn_agregar);
         tv_rfc =(TextView) findViewById(R.id.TV_rfc);
         tv_fecha=(TextView) findViewById(R.id.TV_fe);
+       //layaoust
+        engaches = (LinearLayout) findViewById(R.id.ly_enganche);
+        abonos =(LinearLayout) findViewById(R.id.abonos);
+        end =(LinearLayout) findViewById(R.id.YL_finabtn);
+        next = (LinearLayout) findViewById(R.id.ly_next);
+        save = (Button) findViewById(R.id.lyf_save);
+        save.setEnabled(false);
+
 
 
         autocomplet();
@@ -198,8 +220,143 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse {
     @Override
     public void postServeRequest(String s) {
         settable(s);
+       postAddprodcut();
 
 
+
+
+    }
+    public void reload(View v){
+        postAddprodcut();
+    }
+    public void postAddprodcut(){
+        decimal = new DecimalFormat("0.00");
+
+        engaches.setVisibility(View.VISIBLE);
+        next.setVisibility(View.VISIBLE);
+        //tv-lyaout engache
+        enga_bonificacion = (TextView)findViewById(R.id.lyEng_rvrengache);
+        enga_total = (TextView)findViewById(R.id.lyEng_rv_bengache);
+        enga_engache = (TextView)findViewById(R.id.lyEng_rv_total);
+        aux_engache =Double.parseDouble(GSG.getEnganche());
+        aux_importe = GSG.getCantidad();
+        aux_tasita = Double.parseDouble(GSG.getTasaF());
+        aux_pm = Integer.parseInt(GSG.getpMaximo());
+         engache = fm.engache(aux_engache,aux_importe);
+        bonifiacion_engache = fm.bonificacionEn(engache,aux_tasita,aux_pm);
+        total = fm.totalAdeudo(aux_importe,engache,bonifiacion_engache);
+        total_adeudo = total;
+        enga_total.setText(String.valueOf(bonifiacion_engache));//2,3,1
+        enga_bonificacion.setText(String.valueOf(engache));
+        enga_engache.setText(String.valueOf(total));
+    }
+    public void next(View v){
+        double tpaga3,tpaga6,tpaga9,tpaga12;
+        DecimalFormat decimal = new DecimalFormat("0.00");
+        abonos.setVisibility(View.VISIBLE);
+        next.setVisibility(View.INVISIBLE);
+        end.setVisibility(View.VISIBLE);
+        aux_engache =Double.parseDouble(GSG.getEnganche());
+        aux_importe = GSG.getCantidad();
+        aux_tasita = Double.parseDouble(GSG.getTasaF());
+        aux_pm = Integer.parseInt(GSG.getpMaximo());
+        abonos_d3 =(TextView)findViewById(R.id.Ab_resu3);
+        abonos_d6 =(TextView)findViewById(R.id.Ab_resu6);
+        abonos_d9 =(TextView)findViewById(R.id.Ab_resu9);
+        abonos_d12 =(TextView)findViewById(R.id.Ab_resu12);
+        pagaa_d3 =(TextView)findViewById(R.id.ab_pagart3);
+        pagaa_d6 =(TextView)findViewById(R.id.ab_pagart6);
+        pagaa_d9 =(TextView)findViewById(R.id.ab_pagart9);
+        pagaa_d12 =(TextView)findViewById(R.id.ab_pagart12);
+        ahorra_3=(TextView)findViewById(R.id.ahorra_3);
+        ahorra_6 =(TextView)findViewById(R.id.ahorra_6);
+        ahorra_9=(TextView)findViewById(R.id.ahorra_9);
+        ahorra_12=(TextView)findViewById(R.id.ahorra_12);
+       precio_contado = fm.preciocontado(total_adeudo,aux_tasita,aux_pm);
+        tpaga3 =fm.total_pagar(precio_contado,aux_tasita,3);
+        tpaga6 =fm.total_pagar(precio_contado,aux_tasita,6);
+        tpaga9 = fm.total_pagar(precio_contado,aux_tasita,9);
+        tpaga12 = fm.total_pagar(precio_contado,aux_tasita,12);
+        pagaa_d3.append(" "+tpaga3);
+        pagaa_d6.append(" "+tpaga6);
+        pagaa_d9.append(" "+tpaga9);
+        pagaa_d12.append(" "+tpaga12);
+        abonos_d3.setText("$"+ decimal.format(tpaga3/3));
+        abonos_d6.setText("$"+ decimal.format(tpaga3/6));
+        abonos_d12.setText("$"+ decimal.format(tpaga3/9));
+        abonos_d9.setText("$"+ decimal.format(tpaga3/12));
+        ahorra_3.append(" $"+decimal.format(total_adeudo-tpaga3));
+        ahorra_6.append(" $"+decimal.format(total_adeudo-tpaga6));
+        ahorra_9.append(" $"+decimal.format(total_adeudo-tpaga9));
+        ahorra_12.append(" $"+decimal.format(total_adeudo-tpaga12));
+        rbtn_3 = (RadioButton)findViewById(R.id.ab_rbtn3);
+        rbtn_6 = (RadioButton)findViewById(R.id.ab_rbtn6);
+        rbtn_9 = (RadioButton)findViewById(R.id.ab_rbtn9);
+        rbtn_12 = (RadioButton)findViewById(R.id.ab_rbtn12);
+
+    }
+
+    public void Cancelar(View v){
+        abonos.setVisibility(View.INVISIBLE);
+        next.setVisibility(View.INVISIBLE);
+        engaches.setVisibility(View.INVISIBLE);
+        end.setVisibility(View.INVISIBLE);
+
+        settable("");
+    }
+    public void radib(View v){
+        boolean ifcheck = ((RadioButton) v).isChecked();
+        save.setEnabled(true);
+        // cual tienes check
+        switch(v.getId()) {
+
+            case R.id.ab_rbtn3:
+                if(ifcheck)
+                    rbtn_6.setChecked(false);
+                    rbtn_9.setChecked(false);
+                    rbtn_12.setChecked(false);
+                break;
+            case R.id.ab_rbtn6:
+                if(ifcheck)
+                    rbtn_3.setChecked(false);
+                    rbtn_9.setChecked(false);
+                    rbtn_12.setChecked(false);
+                break;
+            case R.id.ab_rbtn9:
+                if(ifcheck)
+                    rbtn_3.setChecked(false);
+                    rbtn_6.setChecked(false);
+                    rbtn_12.setChecked(false);
+                break;
+            case R.id.ab_rbtn12:
+                if(ifcheck)
+                    rbtn_3.setChecked(false);
+                    rbtn_6.setChecked(false);
+                    rbtn_9.setChecked(false);
+                break;
+        }
+
+    }
+    public void save(View v){
+        String fl = folio.toString();
+        String nm = rfc.getText().toString();
+        String pm = plazosMeses.toString();
+        String ar = articulo.getText().toString();
+        String ex = g.getExistencia();
+        String art = g.getArticulo();
+        if(art.equals("") || nm.equals("") || pm.equals("") || ar.equals("") || ex.equals("")){
+
+        }else{
+            HashMap postData = new HashMap();
+            PostResponseAsyncTask httpost = new PostResponseAsyncTask(this, this);
+            postData.put("folio", fl);
+            postData.put("nombre", nm);
+            postData.put("total", pm);
+            postData.put("descripcion", ar);
+            postData.put("exis",ex);
+            postData.put("artc",art);
+            httpost.setPostData(postData);
+            httpost.execute("http://single-lemonjuice.netau.net/ventas/venta_registrada.php");
     }
 
 }

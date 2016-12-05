@@ -239,7 +239,8 @@
                         android:layout_width="268dp"
                         android:layout_height="match_parent"
                         android:id="@+id/ly_enganche"
-                        android:layout_gravity="end">
+                        android:layout_gravity="end"
+                        android:visibility="invisible">
 
                         <LinearLayout
                             android:orientation="horizontal"
@@ -250,17 +251,23 @@
 
                             <TextView
                                 android:text="@string/tv_engache"
-                                android:layout_width="118dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/lyEng_tv_engache"
-                                android:background="@android:color/darker_gray" />
+                                android:id="@+id/tv_desaparecido"
+                                android:layout_weight="0.04"
+                                android:background="@android:color/darker_gray"
+                                android:gravity="end"
+                                android:layout_gravity="end"
+                                android:layout_marginLeft="75dp"
+                                tools:ignore="RtlHardcoded" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/lyEng_rvrengache"
-                                android:layout_weight="1"
-                                tools:ignore="NestedWeights" />
+                                android:layout_weight="0.34"
+                                tools:ignore="NestedWeights"
+                                android:gravity="center" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -281,7 +288,8 @@
                                 android:layout_height="wrap_content"
                                 android:id="@+id/lyEng_rv_bengache"
                                 android:layout_weight="1"
-                                tools:ignore="InefficientWeight" />
+                                tools:ignore="InefficientWeight"
+                                android:gravity="center" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -297,12 +305,15 @@
                                 android:layout_weight="1"
                                 tools:ignore="InefficientWeight"
                                 android:background="@android:color/darker_gray"
-                                android:layout_marginTop="5dp" />
+                                android:layout_marginTop="5dp"
+                                android:gravity="end" />
 
                             <TextView
                                 android:layout_width="120dp"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/lyEng_rv_total" />
+                                android:id="@+id/lyEng_rv_total"
+                                android:gravity="center"
+                                android:visibility="visible" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -315,7 +326,8 @@
                                          android:id="@+id/ly_next"
                                          android:layout_gravity="end"
                                          tools:ignore="InefficientWeight"
-                                         android:layout_marginTop="15dp">
+                                         android:layout_marginTop="15dp"
+                                         android:visibility="invisible">
 
                                          <LinearLayout
                                              android:orientation="horizontal"
@@ -324,18 +336,20 @@
                                              android:layout_gravity="end">
 
                                              <Button
-                                                 android:text="@string/btn_save"
+                                                 android:text="@string/btn_cancell"
                                                  android:layout_width="138dp"
                                                  android:layout_height="wrap_content"
-                                                 android:id="@+id/LyNxt_btn_save"
-                                                 tools:ignore="ButtonStyle" />
+                                                 android:id="@+id/LyNxt_btn_cancel"
+                                                 tools:ignore="ButtonStyle"
+                                                 android:onClick="Cancelar" />
 
                                              <Button
                                                  android:text="@string/btn_next"
                                                  android:layout_width="125dp"
                                                  android:layout_height="wrap_content"
                                                  android:id="@+id/LyNxt_btn_next"
-                                                 tools:ignore="ButtonStyle" />
+                                                 tools:ignore="ButtonStyle"
+                                                 android:onClick="next" />
 
                                          </LinearLayout>
 
@@ -345,7 +359,18 @@
                                                              android:orientation="vertical"
                                                              android:layout_width="match_parent"
                                                              android:layout_height="wrap_content"
-                                                             android:id="@+id/abonos">
+                                                             android:id="@+id/abonos"
+                                                             android:visibility="invisible">
+
+                                                             <TextView
+                                                                 android:text="@string/abonomensual"
+                                                                 android:layout_width="match_parent"
+                                                                 android:layout_height="match_parent"
+                                                                 android:id="@+id/abonomesual"
+                                                                 android:background="@color/colorPrimaryDark"
+                                                                 android:layout_gravity="center"
+                                                                 android:textSize="24sp"
+                                                                 android:gravity="center_vertical|center" />
 
                                                              <TableLayout
                                                                  android:layout_width="match_parent"
@@ -379,17 +404,26 @@
                                                                          android:layout_marginLeft="40dp"
                                                                          tools:ignore="RtlHardcoded" />
 
+                                                                     <TextView
+                                                                         android:text="@string/ahorroador"
+                                                                         android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/ahorra_3"
+                                                                         android:layout_marginLeft="40dp"
+                                                                         tools:ignore="RtlHardcoded" />
+
                                                                      <RadioButton
                                                                          android:layout_width="wrap_content"
                                                                          android:layout_height="wrap_content"
                                                                          android:id="@+id/ab_rbtn3"
                                                                          android:layout_marginLeft="60dp"
-                                                                         tools:ignore="RtlHardcoded" />
+                                                                         tools:ignore="RtlHardcoded"
+                                                                         android:onClick="radib" />
                                                                  </TableRow>
 
                                                                  <TableRow
                                                                      android:layout_width="match_parent"
-                                                                     android:layout_height="match_parent" >
+                                                                     android:layout_height="match_parent">
 
                                                                      <TextView
                                                                          android:text="@string/abono_S"
@@ -412,12 +446,21 @@
                                                                          android:layout_marginLeft="40dp"
                                                                          tools:ignore="RtlHardcoded" />
 
+                                                                     <TextView
+                                                                         android:text="@string/ahorroador"
+                                                                         android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/ahorra_6"
+                                                                         android:layout_marginLeft="40dp"
+                                                                         tools:ignore="RtlHardcoded" />
+
                                                                      <RadioButton
                                                                          android:layout_width="wrap_content"
                                                                          android:layout_height="wrap_content"
                                                                          android:id="@+id/ab_rbtn6"
                                                                          android:layout_marginLeft="60dp"
-                                                                         tools:ignore="RtlHardcoded" />
+                                                                         tools:ignore="RtlHardcoded"
+                                                                         android:onClick="radib" />
 
                                                                  </TableRow>
 
@@ -434,7 +477,9 @@
                                                                      <TextView
                                                                          android:layout_width="80sp"
                                                                          android:layout_height="wrap_content"
-                                                                         android:id="@+id/Ab_resu9" />
+                                                                         android:id="@+id/Ab_resu9"
+                                                                         android:layout_marginLeft="20dp"
+                                                                         tools:ignore="RtlHardcoded" />
 
                                                                      <TextView
                                                                          android:text="@string/ab_total"
@@ -444,12 +489,21 @@
                                                                          android:layout_marginLeft="40dp"
                                                                          tools:ignore="RtlHardcoded" />
 
+                                                                     <TextView
+                                                                         android:text="@string/ahorroador"
+                                                                         android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/ahorra_9"
+                                                                         android:layout_marginLeft="40dp"
+                                                                         tools:ignore="RtlHardcoded" />
+
                                                                      <RadioButton
                                                                          android:layout_width="wrap_content"
                                                                          android:layout_height="wrap_content"
                                                                          android:id="@+id/ab_rbtn9"
                                                                          android:layout_marginLeft="60dp"
-                                                                         tools:ignore="RtlHardcoded" />
+                                                                         tools:ignore="RtlHardcoded"
+                                                                         android:onClick="radib" />
                                                                  </TableRow>
 
                                                                  <TableRow
@@ -465,7 +519,9 @@
                                                                      <TextView
                                                                          android:layout_width="wrap_content"
                                                                          android:layout_height="wrap_content"
-                                                                         android:id="@+id/Ab_resu12" />
+                                                                         android:id="@+id/Ab_resu12"
+                                                                         android:layout_marginLeft="20dp"
+                                                                         tools:ignore="RtlHardcoded" />
 
                                                                      <TextView
                                                                          android:text="@string/ab_total"
@@ -475,12 +531,21 @@
                                                                          android:layout_marginLeft="40dp"
                                                                          tools:ignore="RtlHardcoded" />
 
+                                                                     <TextView
+                                                                         android:text="@string/ahorroador"
+                                                                         android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/ahorra_12"
+                                                                         android:layout_marginLeft="40dp"
+                                                                         tools:ignore="RtlHardcoded" />
+
                                                                      <RadioButton
                                                                          android:layout_width="wrap_content"
                                                                          android:layout_height="wrap_content"
                                                                          android:id="@+id/ab_rbtn12"
                                                                          android:layout_marginLeft="60dp"
-                                                                         tools:ignore="RtlHardcoded" />
+                                                                         tools:ignore="RtlHardcoded"
+                                                                         android:onClick="radib" />
 
                                                                  </TableRow>
                                                              </TableLayout>
@@ -493,7 +558,8 @@
                                                              android:layout_height="match_parent"
                                                              android:id="@+id/YL_finabtn"
                                                              android:layout_gravity="end"
-                                                             android:layout_marginTop="15dp">
+                                                             android:layout_marginTop="15dp"
+                                                             android:visibility="invisible">
 
                                                              <LinearLayout
                                                                  android:orientation="horizontal"
@@ -506,14 +572,17 @@
                                                                      android:layout_width="123dp"
                                                                      android:layout_height="wrap_content"
                                                                      android:id="@+id/lyf_cancel"
-                                                                     tools:ignore="ButtonStyle" />
+                                                                     tools:ignore="ButtonStyle"
+                                                                     android:onClick="Cancelar"
+                                                                     android:enabled="true" />
 
                                                                  <Button
                                                                      android:text="@string/btn_save"
                                                                      android:layout_width="121dp"
                                                                      android:layout_height="wrap_content"
                                                                      android:id="@+id/lyf_save"
-                                                                     tools:ignore="ButtonStyle" />
+                                                                     tools:ignore="ButtonStyle"
+                                                                     android:onClick="save" />
                                                              </LinearLayout>
 
                                                          </LinearLayout>

@@ -61,6 +61,10 @@ public class Vendimia extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         alldata();
+        //susitui cuando hagas el config
+        GSG.setpMaximo("12");
+        GSG.setEnganche("20");
+        GSG.setTasaF("2.8");
     }
     public void alldata(){
          GSG.setURL(URL);
