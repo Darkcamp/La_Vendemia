@@ -11,13 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.List;
 
 @SuppressLint("NewApi")
 public class cardViewAlertasAdapter2 extends RecyclerView.Adapter <cardViewAlertasAdapter2.cardViewAlertasHolder>{
-    GlobalSetGet g = GlobalSetGet.getInstance();
+    GlobalSetGet GSG = GlobalSetGet.getInstance();
     private List<cardViewDistribute> listaAlertas;
     public cardViewAlertasAdapter2(List<cardViewDistribute> alertaInfo) {
         this.listaAlertas = alertaInfo;
@@ -41,7 +42,7 @@ public class cardViewAlertasAdapter2 extends RecyclerView.Adapter <cardViewAlert
 
         final int index=i;
 
-        holder.boton.setOnClickListener(  new View.OnClickListener() {
+        holder.btn.setOnClickListener(  new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -68,20 +69,18 @@ public class cardViewAlertasAdapter2 extends RecyclerView.Adapter <cardViewAlert
           public void afterTextChanged(Editable s) {
 
               try {
-                  int cn = Integer.parseInt(s.toString());
-                  // int imp = Integer.parseInt(holder.importe.getText().toString());
-                  //  imp = imp * cn;
-                  //holder.cantidad.setText(imp);
-                  Log.d("msg", cn + "");
+                  int cantid = Integer.parseInt(s.toString());
+
+                  Log.d("msg", cantid + "");
                   double imp = Double.parseDouble(holder.precio.getText().toString());
-                  double result = imp * cn;
+                  double result = imp * cantid;
                   holder.importe.setText(""+result);
-                  g.setCantidad(result);
-                  g.setExistencia(cn+"");
+                  GSG.setCantidad(result);
+                  GSG.setExistencia(cantid+"");
               }catch(Exception e){
                   Log.d("msg",e.getMessage());
                holder.importe.setText("");
-                  g.setCantidad(0);
+                  GSG.setCantidad(0);
               }
 
           }
@@ -101,20 +100,21 @@ public class cardViewAlertasAdapter2 extends RecyclerView.Adapter <cardViewAlert
 
 
     public class cardViewAlertasHolder extends RecyclerView.ViewHolder{
-        protected TextView descripcion,Modelo,precio,importe,boton;
+        protected TextView descripcion,Modelo,precio,importe;
         protected EditText cantidad;
+        ImageButton btn;
+
 
 
         public cardViewAlertasHolder(View v) {
             super(v);
             //Se cargan los componentes de la cardView
-            descripcion =  (TextView)  v.findViewById(R.id.descripcion);
-            Modelo =  (TextView)  v.findViewById(R.id.Modelo);
-            precio =  (TextView)  v.findViewById(R.id.Precio);
-            importe =  (TextView)  v.findViewById(R.id.importe);
-            boton =  (TextView)  v.findViewById(R.id.close);
-            cantidad = (EditText) v.findViewById(R.id.cantidad);
-
+            descripcion =  (TextView)  v.findViewById(R.id.VC_dsArticulo);
+            Modelo =  (TextView)  v.findViewById(R.id.VC_Modelo);
+            precio =  (TextView)  v.findViewById(R.id.VC_Precio);
+            importe =  (TextView)  v.findViewById(R.id.VC_importe);
+            btn =  (ImageButton)  v.findViewById(R.id.cv_delte);
+            cantidad = (EditText) v.findViewById(R.id.VC_cantidad);
 
 
 

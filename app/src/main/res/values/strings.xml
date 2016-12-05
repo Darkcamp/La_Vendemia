@@ -45,4 +45,16 @@
     <string name="tv_RFC">RFC</string>
     <string name="title_activity_registro_ventas">Registro de Ventas</string>
 
+    <!-- buttons -->
+    <string name="btn_next">Siguiente</string>
+    <string name="btn_cancell">Cancelar</string>
+    <string name="btn_save">Guardar</string>
+     <!-- abones -->
+    <string name="abono_T">3 ABONOS DE</string>
+    <string name="abono_S">6 ABONOS DE</string>
+    <string name="abono_N">9 ABONOS DE</string>
+    <string name="abono_D">12 ABONOS DE</string>
+    <string name="ab_total">TOTAL A PAGAR$</string>
+    <string name="ahorroador">SE AHORRA</string>
+
 </resources>

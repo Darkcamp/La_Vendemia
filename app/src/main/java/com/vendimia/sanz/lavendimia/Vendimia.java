@@ -63,7 +63,7 @@ public class Vendimia extends AppCompatActivity
         alldata();
     }
     public void alldata(){
-
+         GSG.setURL(URL);
         postData = new HashMap();
         petecion = new ServerRequest(this, this);
         postData.put("action", "all");

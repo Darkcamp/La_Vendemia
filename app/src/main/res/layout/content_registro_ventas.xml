@@ -12,226 +12,514 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.vendimia.sanz.lavendimia.RegistroVentas"
     tools:showIn="@layout/activity_registro_ventas"
-    android:layout_marginStart="15dp">
+    android:layout_marginStart="15dp"
+    android:layout_marginLeft="15dp">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="UselessParent">
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:weightSum="1"
-                tools:ignore="ScrollViewSize">
+               <LinearLayout
+                   android:orientation="vertical"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:weightSum="1"
+                   tools:ignore="ScrollViewSize">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/TV_fe"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="18sp"
-                    android:gravity="end"
-                    android:text="@string/number_folio" />
 
-                <TextView
-                    android:text="@string/foli_venta"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/fol"
-                    android:textSize="16sp"
-                    android:textColor="@android:color/holo_green_dark"
-                    android:gravity="end"
-                   />
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:id="@+id/TV_fe"
+                       android:layout_marginBottom="10dp"
+                       android:textSize="18sp"
+                       android:gravity="end"
+                       android:text="@string/number_folio" />
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                   <TextView
+                       android:text="@string/foli_venta"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:id="@+id/fol"
+                       android:textSize="16sp"
+                       android:textColor="@android:color/holo_green_dark"
+                       android:gravity="end"
+                      />
+
+                                 <LinearLayout
+                                     android:orientation="vertical"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="match_parent">
+
+                                     <LinearLayout
+                                         android:orientation="horizontal"
+                                         android:layout_width="match_parent"
+                                         android:gravity="center"
+                                         android:layout_marginLeft="7dp"
+                                         android:layout_marginBottom="10dp"
+                                         android:layout_height="match_parent"
+                                         android:layout_weight="0.07"
+                                         tools:ignore="DisableBaselineAlignment,RtlHardcoded">
+
+                                         <LinearLayout
+                                             android:orientation="horizontal"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:layout_weight="0.06"
+                                             tools:ignore="InefficientWeight,NestedWeights,UselessParent">
+
+                                             <TextView
+                                                 android:text="@string/tv_cliente"
+                                                 android:layout_width="wrap_content"
+                                                 android:layout_height="match_parent"
+                                                 android:id="@+id/TV_cliente"
+                                                 android:gravity="center"
+                                                 android:textSize="16sp"
+                                                 android:textColor="@android:color/background_light"
+                                                 android:background="@color/colorPrimary"
+                                                 android:layout_weight="0.04" />
+
+                                             <AutoCompleteTextView
+                                                 android:layout_width="189dp"
+                                                 android:layout_height="wrap_content"
+                                                 android:inputType="textPersonName"
+                                                 android:ems="10"
+                                                 android:id="@+id/AutoCTV_Cliente"
+                                                 android:hint="Buscar cliente..."
+                                                 tools:ignore="HardcodedText" />
+
+                                             <TextView
+                                                 android:layout_width="wrap_content"
+                                                 android:layout_height="wrap_content"
+                                                 android:id="@+id/TV_rfc"
+                                                 android:layout_weight="0.82"
+                                                 android:textSize="18sp"
+                                                 android:textColor="@android:color/background_dark"
+                                                 android:gravity="start" />
+                                         </LinearLayout>
+
+                                     </LinearLayout>
+
+                                     <LinearLayout
+                                         android:orientation="horizontal"
+                                         android:layout_width="match_parent"
+                                         android:gravity="center"
+                                         android:layout_marginLeft="7dp"
+                                         android:layout_marginBottom="10dp"
+                                         android:layout_height="match_parent"
+                                         android:weightSum="1"
+                                         android:layout_weight="0.07"
+                                         tools:ignore="RtlHardcoded">
+
+                                         <LinearLayout
+                                             android:orientation="horizontal"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="41dp"
+                                             tools:ignore="UselessParent">
+
+                                             <TextView
+                                                 android:text="@string/tv_articulo"
+                                                 android:layout_width="wrap_content"
+                                                 android:layout_height="match_parent"
+                                                 android:id="@+id/TV_art"
+                                                 android:layout_weight="0.06"
+                                                 android:gravity="center"
+                                                 android:textSize="16sp"
+                                                 android:textColor="@android:color/background_light"
+                                                 android:background="@color/colorPrimary" />
+
+                                             <AutoCompleteTextView
+                                                 android:layout_height="wrap_content"
+                                                 android:inputType="textPersonName"
+                                                 android:ems="10"
+                                                 android:id="@+id/AutoCTV_articulo"
+                                                 android:hint="  Buscar Articulo..."
+                                                 android:layout_width="157dp"
+                                                 android:layout_weight="1.39"
+                                                 tools:ignore="HardcodedText" />
+
+                                             <ImageButton
+                                                 android:layout_width="wrap_content"
+                                                 app:srcCompat="@android:drawable/ic_input_add"
+                                                 android:id="@+id/btn_agregar"
+                                                 android:layout_marginLeft="16dp"
+                                                 android:layout_marginRight="20dp"
+                                                 android:layout_height="wrap_content"
+                                                 android:layout_gravity="start"
+                                                 tools:ignore="ContentDescription,RtlHardcoded"
+                                                 android:onClick="agregarProduct" />
+                                         </LinearLayout>
+
+                                     </LinearLayout>
+
+                                                     </LinearLayout>
+
+                                                     <TextView
+                                                         android:text="existencia: 0"
+                                                         android:layout_width="match_parent"
+                                                         android:layout_height="wrap_content"
+                                                         android:id="@+id/existencia"
+                                                         android:layout_weight="1"
+                                                         android:visibility="invisible"
+                                                         tools:ignore="HardcodedText,InefficientWeight" />
+
+                                                     <LinearLayout
+                                                         android:layout_width="match_parent"
+                                                         android:layout_height="match_parent"
+                                                         android:orientation="vertical" >
+
+                                                         <LinearLayout
+                                                             android:orientation="horizontal"
+                                                             android:layout_width="match_parent"
+                                                             android:layout_height="50dp"
+                                                             android:gravity="center"
+                                                             android:background="@color/cardview_shadow_start_color">
+
+                                                             <TextView
+                                                                 android:text="@string/dscrip_articulo"
+                                                                 android:layout_width="wrap_content"
+                                                                 android:layout_height="wrap_content"
+                                                                 android:id="@+id/tv_desArt"
+                                                                 android:layout_weight="1"
+                                                                 android:gravity="center" />
+
+                                                             <TextView
+                                                                 android:text="@string/tv_modelo"
+                                                                 android:layout_width="wrap_content"
+                                                                 android:layout_height="wrap_content"
+                                                                 android:id="@+id/TV_mode"
+                                                                 android:layout_weight="1"
+                                                                 android:gravity="center" />
+
+                                                             <TextView
+                                                                 android:text="@string/tv_cantidad"
+                                                                 android:layout_width="wrap_content"
+                                                                 android:layout_height="wrap_content"
+                                                                 android:id="@+id/tv_cantidada"
+                                                                 android:layout_weight="1"
+                                                                 android:gravity="center" />
+
+                                                             <TextView
+                                                                 android:text="@string/tv_precio"
+                                                                 android:layout_width="wrap_content"
+                                                                 android:layout_height="wrap_content"
+                                                                 android:id="@+id/tv_precio"
+                                                                 android:layout_weight="1"
+                                                                 android:gravity="center" />
+
+                                                             <TextView
+                                                                 android:text="@string/tv_importe"
+                                                                 android:layout_width="wrap_content"
+                                                                 android:layout_height="wrap_content"
+                                                                 android:id="@+id/tv_import"
+                                                                 android:layout_weight="1"
+                                                                 android:gravity="center" />
+
+                                                             <TextView
+                                                                 android:layout_width="wrap_content"
+                                                                 android:layout_height="wrap_content"
+                                                                 android:id="@+id/tv_delete"
+                                                                 android:layout_weight="1.80"
+                                                                 android:gravity="center" />
+
+                                                         </LinearLayout>
+
+                                                         <android.support.v7.widget.RecyclerView
+                                                             android:id="@+id/RView_a2"
+                                                             android:layout_width="match_parent"
+                                                             android:layout_height="147dp"
+                                                             android:layout_below="@+id/linearLayout4"
+                                                             tools:ignore="ObsoleteLayoutParam" >
+
+                                                         </android.support.v7.widget.RecyclerView>
 
                     <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:gravity="center"
-                        android:layout_marginLeft="7dp"
-                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical"
+                        android:layout_width="268dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.07"
-                        tools:ignore="DisableBaselineAlignment,RtlHardcoded">
+                        android:id="@+id/ly_enganche"
+                        android:layout_gravity="end">
 
                         <LinearLayout
                             android:orientation="horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.06"
-                            tools:ignore="InefficientWeight,NestedWeights,UselessParent">
+                            android:layout_weight="0.07"
+                            tools:ignore="InefficientWeight">
 
                             <TextView
-                                android:text="@string/tv_cliente"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:id="@+id/TV_cliente"
-                                android:gravity="center"
-                                android:textSize="16sp"
-                                android:textColor="@android:color/background_light"
-                                android:background="@color/colorPrimary"
-                                android:layout_weight="0.04" />
-
-                            <AutoCompleteTextView
-                                android:layout_width="189dp"
+                                android:text="@string/tv_engache"
+                                android:layout_width="118dp"
                                 android:layout_height="wrap_content"
-                                android:inputType="textPersonName"
-                                android:ems="10"
-                                android:id="@+id/AutoCTV_Cliente"
-                                android:hint="Buscar cliente..."
-                                tools:ignore="HardcodedText" />
+                                android:id="@+id/lyEng_tv_engache"
+                                android:background="@android:color/darker_gray" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/TV_rfc"
-                                android:layout_weight="0.82"
-                                android:textSize="18sp"
-                                android:textColor="@android:color/background_dark"
-                                android:gravity="start" />
+                                android:id="@+id/lyEng_rvrengache"
+                                android:layout_weight="1"
+                                tools:ignore="NestedWeights" />
                         </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:gravity="center"
-                        android:layout_marginLeft="7dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_height="match_parent"
-                        android:weightSum="1"
-                        android:layout_weight="0.07"
-                        tools:ignore="RtlHardcoded">
 
                         <LinearLayout
                             android:orientation="horizontal"
                             android:layout_width="match_parent"
-                            android:layout_height="41dp"
-                            tools:ignore="UselessParent">
+                            android:layout_height="match_parent">
 
                             <TextView
-                                android:text="@string/tv_articulo"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:id="@+id/TV_art"
-                                android:layout_weight="0.06"
-                                android:gravity="center"
-                                android:textSize="16sp"
-                                android:textColor="@android:color/background_light"
-                                android:background="@color/colorPrimary" />
-
-                            <AutoCompleteTextView
+                                android:text="@string/bnf_Engache"
+                                android:layout_width="150dp"
                                 android:layout_height="wrap_content"
-                                android:inputType="textPersonName"
-                                android:ems="10"
-                                android:id="@+id/AutoCTV_articulo"
-                                android:hint="  Buscar Articulo..."
-                                android:layout_width="157dp"
-                                android:layout_weight="1.39"
-                                tools:ignore="HardcodedText" />
+                                android:id="@+id/lyEng_tv_vengache"
+                                android:background="@android:color/darker_gray"
+                                android:layout_marginTop="5dp" />
 
-                            <ImageButton
-                                android:layout_width="wrap_content"
-                                app:srcCompat="@android:drawable/ic_input_add"
-                                android:id="@+id/btn_agregar"
-                                android:layout_marginLeft="16dp"
-                                android:layout_marginRight="20dp"
+                            <TextView
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="start"
-                                tools:ignore="ContentDescription,RtlHardcoded"
-                                android:onClick="agregarProduct" />
+                                android:id="@+id/lyEng_rv_bengache"
+                                android:layout_weight="1"
+                                tools:ignore="InefficientWeight" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:text="@string/msg_total"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/lyEng_rvtotal"
+                                android:layout_weight="1"
+                                tools:ignore="InefficientWeight"
+                                android:background="@android:color/darker_gray"
+                                android:layout_marginTop="5dp" />
+
+                            <TextView
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/lyEng_rv_total" />
                         </LinearLayout>
 
                     </LinearLayout>
 
-                </LinearLayout>
+                                     <LinearLayout
+                                         android:orientation="vertical"
+                                         android:layout_width="wrap_content"
+                                         android:layout_height="match_parent"
+                                         android:layout_weight="0.07"
+                                         android:id="@+id/ly_next"
+                                         android:layout_gravity="end"
+                                         tools:ignore="InefficientWeight"
+                                         android:layout_marginTop="15dp">
 
-                <TextView
-                    android:text="existencia: 0"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/existencia"
-                    android:layout_weight="1"
-                    android:visibility="invisible"
-                    tools:ignore="HardcodedText,InefficientWeight" />
+                                         <LinearLayout
+                                             android:orientation="horizontal"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:layout_gravity="end">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical" >
+                                             <Button
+                                                 android:text="@string/btn_save"
+                                                 android:layout_width="138dp"
+                                                 android:layout_height="wrap_content"
+                                                 android:id="@+id/LyNxt_btn_save"
+                                                 tools:ignore="ButtonStyle" />
 
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:gravity="center"
-                        android:background="@color/cardview_shadow_start_color">
+                                             <Button
+                                                 android:text="@string/btn_next"
+                                                 android:layout_width="125dp"
+                                                 android:layout_height="wrap_content"
+                                                 android:id="@+id/LyNxt_btn_next"
+                                                 tools:ignore="ButtonStyle" />
 
-                        <TextView
-                            android:text="@string/dscrip_articulo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/tv_desArt"
-                            android:layout_weight="1"
-                            android:gravity="center" />
+                                         </LinearLayout>
 
-                        <TextView
-                            android:text="@string/tv_modelo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/TV_mode"
-                            android:layout_weight="1"
-                            android:gravity="center" />
+                                     </LinearLayout>
 
-                        <TextView
-                            android:text="@string/tv_cantidad"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/tv_cantidada"
-                            android:layout_weight="1"
-                            android:gravity="center" />
+                                                         <LinearLayout
+                                                             android:orientation="vertical"
+                                                             android:layout_width="match_parent"
+                                                             android:layout_height="wrap_content"
+                                                             android:id="@+id/abonos">
 
-                        <TextView
-                            android:text="@string/tv_precio"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/tv_precio"
-                            android:layout_weight="1"
-                            android:gravity="center" />
+                                                             <TableLayout
+                                                                 android:layout_width="match_parent"
+                                                                 android:layout_height="match_parent"
+                                                                 android:background="@android:color/darker_gray">
 
-                        <TextView
-                            android:text="@string/tv_importe"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/tv_import"
-                            android:layout_weight="1"
-                            android:gravity="center" />
+                                                                 <TableRow
+                                                                     android:layout_width="match_parent"
+                                                                     android:layout_height="match_parent" >
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/tv_delete"
-                            android:layout_weight="1.80"
-                            android:gravity="center" />
+                                                                     <TextView
+                                                                         android:text="@string/abono_T"
+                                                                         android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/abono_3" />
 
-                    </LinearLayout>
+                                                                     <TextView
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/Ab_resu3"
+                                                                         android:layout_marginLeft="20dp"
+                                                                         android:elevation="1dp"
+                                                                         android:layout_width="80sp"
+                                                                         tools:ignore="RtlHardcoded"
+                                                                         tools:targetApi="lollipop" />
 
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/RView_a2"
-                        android:layout_width="match_parent"
-                        android:layout_height="147dp"
-                        android:layout_below="@+id/linearLayout4"
-                        tools:ignore="ObsoleteLayoutParam" />
+                                                                     <TextView
+                                                                         android:text="@string/ab_total"
+                                                                         android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/ab_pagart3"
+                                                                         android:layout_marginLeft="40dp"
+                                                                         tools:ignore="RtlHardcoded" />
+
+                                                                     <RadioButton
+                                                                         android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/ab_rbtn3"
+                                                                         android:layout_marginLeft="60dp"
+                                                                         tools:ignore="RtlHardcoded" />
+                                                                 </TableRow>
+
+                                                                 <TableRow
+                                                                     android:layout_width="match_parent"
+                                                                     android:layout_height="match_parent" >
+
+                                                                     <TextView
+                                                                         android:text="@string/abono_S"
+                                                                         android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/abono_6" />
+
+                                                                     <TextView
+                                                                         android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/Ab_resu6"
+                                                                         android:layout_marginLeft="20dp"
+                                                                         tools:ignore="RtlHardcoded" />
+
+                                                                     <TextView
+                                                                         android:text="@string/ab_total"
+                                                                         android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/ab_pagart6"
+                                                                         android:layout_marginLeft="40dp"
+                                                                         tools:ignore="RtlHardcoded" />
+
+                                                                     <RadioButton
+                                                                         android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/ab_rbtn6"
+                                                                         android:layout_marginLeft="60dp"
+                                                                         tools:ignore="RtlHardcoded" />
+
+                                                                 </TableRow>
+
+                                                                 <TableRow
+                                                                     android:layout_width="match_parent"
+                                                                     android:layout_height="match_parent" >
+
+                                                                     <TextView
+                                                                         android:text="@string/abono_N"
+                                                                         android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/abono_9" />
+
+                                                                     <TextView
+                                                                         android:layout_width="80sp"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/Ab_resu9" />
+
+                                                                     <TextView
+                                                                         android:text="@string/ab_total"
+                                                                         android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/ab_pagart9"
+                                                                         android:layout_marginLeft="40dp"
+                                                                         tools:ignore="RtlHardcoded" />
+
+                                                                     <RadioButton
+                                                                         android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/ab_rbtn9"
+                                                                         android:layout_marginLeft="60dp"
+                                                                         tools:ignore="RtlHardcoded" />
+                                                                 </TableRow>
+
+                                                                 <TableRow
+                                                                     android:layout_width="match_parent"
+                                                                     android:layout_height="match_parent" >
+
+                                                                     <TextView
+                                                                         android:text="@string/abono_D"
+                                                                         android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/abono_12" />
+
+                                                                     <TextView
+                                                                         android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/Ab_resu12" />
+
+                                                                     <TextView
+                                                                         android:text="@string/ab_total"
+                                                                         android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/ab_pagart12"
+                                                                         android:layout_marginLeft="40dp"
+                                                                         tools:ignore="RtlHardcoded" />
+
+                                                                     <RadioButton
+                                                                         android:layout_width="wrap_content"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:id="@+id/ab_rbtn12"
+                                                                         android:layout_marginLeft="60dp"
+                                                                         tools:ignore="RtlHardcoded" />
+
+                                                                 </TableRow>
+                                                             </TableLayout>
+
+                                                         </LinearLayout>
+
+                                                         <LinearLayout
+                                                             android:orientation="vertical"
+                                                             android:layout_width="wrap_content"
+                                                             android:layout_height="match_parent"
+                                                             android:id="@+id/YL_finabtn"
+                                                             android:layout_gravity="end"
+                                                             android:layout_marginTop="15dp">
+
+                                                             <LinearLayout
+                                                                 android:orientation="horizontal"
+                                                                 android:layout_width="match_parent"
+                                                                 android:layout_height="match_parent"
+                                                                 android:weightSum="1">
+
+                                                                 <Button
+                                                                     android:text="@string/btn_cancell"
+                                                                     android:layout_width="123dp"
+                                                                     android:layout_height="wrap_content"
+                                                                     android:id="@+id/lyf_cancel"
+                                                                     tools:ignore="ButtonStyle" />
+
+                                                                 <Button
+                                                                     android:text="@string/btn_save"
+                                                                     android:layout_width="121dp"
+                                                                     android:layout_height="wrap_content"
+                                                                     android:id="@+id/lyf_save"
+                                                                     tools:ignore="ButtonStyle" />
+                                                             </LinearLayout>
+
+                                                         </LinearLayout>
 
 
-                </LinearLayout>
+                                                     </LinearLayout>
 
             </LinearLayout>
     </ScrollView>
