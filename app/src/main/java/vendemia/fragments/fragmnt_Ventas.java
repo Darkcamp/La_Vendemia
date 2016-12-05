@@ -2,7 +2,9 @@ package vendemia.fragments;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -14,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.vendimia.sanz.lavendimia.R;
+import com.vendimia.sanz.lavendimia.RegistroVentas;
 import com.vendimia.sanz.lavendimia.UpdateActionBarTitleFragment;
 
 
@@ -34,8 +37,17 @@ public class fragmnt_Ventas extends Fragment implements View.OnClickListener {
 
         // Inflate the layout for this fragment
        View miVista = inflater.inflate(R.layout.fragmnt_ventas,container,false);
-         btn_n_venta = (Button)miVista.findViewById(R.id.btn_nventa);
-         btn_n_venta.setOnClickListener(this);
+        // btn_n_venta = (Button)miVista.findViewById(R.id.btn_nventa);
+//         btn_n_venta.setOnClickListener(this);
+         FloatingActionButton fab = (FloatingActionButton) miVista.findViewById(R.id.floatingActionButton);
+         fab.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+
+                 Intent nuevaVenta = new Intent(getActivity(),RegistroVentas.class);
+                 startActivity(nuevaVenta);
+             }
+         });
         return miVista;
     }
 

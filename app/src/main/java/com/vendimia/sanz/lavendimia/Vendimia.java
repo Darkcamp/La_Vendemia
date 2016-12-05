@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,13 +18,30 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
+import com.example.sanzlibrary1_0_1.AsynResponse;
+import com.example.sanzlibrary1_0_1.ServerRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+
 import vendemia.fragments.fragmnt_Ventas;
 import vendemia.fragments.startFragment;
 
 public class Vendimia extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,UpdateActionBarTitleFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener,UpdateActionBarTitleFragment.OnFragmentInteractionListener,AsynResponse {
     //variable para el manejo de los fragmentos
     FragmentManager manager = getSupportFragmentManager();
+    //varibles de la libreria sanz para manejarlas en los distintos metodos
+    HashMap postData;
+    ServerRequest petecion;
+    String URL ="http://chali23.000webhostapp.com/Vendemia/";
+    String JSONCliente,JSONProduct,fecha;
+    //variables json
+    JSONObject jsonObject = null;
+    GlobalSetGet GSG = GlobalSetGet.getInstance();
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +60,23 @@ public class Vendimia extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        alldata();
+    }
+    public void alldata(){
+
+        postData = new HashMap();
+        petecion = new ServerRequest(this, this);
+        postData.put("action", "all");
+        petecion.setSendData(postData);
+        try {
+        petecion.execute(URL + "autocomplete.php");
+            Log.d("xd",URL+"autocomplete.php");
+    }catch (Exception e){
+        Log.d("error cl",e.getMessage());
     }
 
+
+    }
 
 
     @Override
@@ -135,5 +168,28 @@ public class Vendimia extends AppCompatActivity
 
     public void onFragmentInteraction(String title) {
         getSupportActionBar().setTitle(title);
+    }
+
+    @Override
+    public void postInternetCheck(Boolean aBoolean) {
+
+    }
+
+    @Override
+    public void postServeRequest(String s) {
+        Log.d("resquest",s);
+        try {
+            jsonObject = new JSONObject(s);
+            JSONCliente = jsonObject.getString("jsonclient");
+            GSG.setJSONClientes(JSONCliente);
+            JSONProduct = jsonObject.getString("jsonproduct");
+            GSG.setJSONProductos(JSONProduct);
+            fecha = jsonObject.getString("fecha");
+            GSG.setFecha(fecha);
+
+        } catch (Exception e) {
+            Log.d("error servidor",e.getMessage());
+        }
+
     }
 }

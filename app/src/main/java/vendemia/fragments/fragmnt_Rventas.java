@@ -12,7 +12,7 @@ import android.widget.AutoCompleteTextView;
 import com.vendimia.sanz.lavendimia.R;
 import com.vendimia.sanz.lavendimia.UpdateActionBarTitleFragment;
 
-import autocomplet.adapter;
+
 
 /**
  * A simple {@link Fragment} subclass.

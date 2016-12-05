@@ -43,5 +43,6 @@
     <string name="tv_apellidP">Apellido Paterno</string>
     <string name="tv_apellidM">Apellido Materno</string>
     <string name="tv_RFC">RFC</string>
+    <string name="title_activity_registro_ventas">Registro de Ventas</string>
 
 </resources>
