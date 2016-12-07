@@ -182,9 +182,9 @@ public class fragmnt_Artiuclos extends Fragment implements AsynResponse{
             public void run() {
                 if(GSG.getTagC() == 1) {
                     Intent edit = new Intent(getActivity(),Edit_articulo.class);
-                    edit.putExtra("data", GSG.getJSONClientes());
+                    edit.putExtra("data", GSG.getJSONProductos());
                     startActivity(edit);
-                    GSG.setTagC(0);
+                    GSG.setTag2(0);
                 }
                 Log.d("task", "Task is running");
                 handler.postDelayed(this, 300);
