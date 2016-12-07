@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view" android:layout_width="fill_parent" android:layout_height="50dp" android:layout_margin="5.0dip" xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout android:orientation="vertical" android:id="@+id/contenedor_alerta" android:background="#fff" android:paddingTop="0.0dip" android:layout_width="fill_parent"
+        android:layout_height="50dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            tools:ignore="UselessParent">
+
+            <TextView
+                android:text="@string/dscrip_articulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/VC_dsArticulo"
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimary"
+                android:gravity="center" />
+
+            <TextView
+                android:text="@string/tv_modelo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/VC_Modelo"
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimary"
+                android:gravity="center" />
+
+            <EditText
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:digits="0,1,2,3,4,5,6,7,8,9"
+                android:ems="10"
+                android:id="@+id/VC_cantidad"
+                android:hint="1"
+                android:onClick="reload" />
+
+            <TextView
+                android:text="@string/tv_precio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/VC_Precio"
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimary"
+                android:gravity="center_horizontal"
+                tools:ignore="RtlHardcoded" />
+
+            <TextView
+                android:text="@string/tv_importe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/VC_importe"
+                android:layout_weight="0.79"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginRight="15dp"
+                tools:ignore="RtlHardcoded"
+                android:gravity="center" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                card_view:srcCompat="@android:drawable/ic_delete"
+                android:id="@+id/cv_delte"
+                android:contentDescription=""
+                tools:ignore="ContentDescription"
+                android:layout_weight="0.17" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

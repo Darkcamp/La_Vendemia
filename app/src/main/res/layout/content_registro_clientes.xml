@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_registro_clientes"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.vendimia.sanz.lavendimia.Registro_Clientes"
+    tools:showIn="@layout/activity_registro_clientes">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:ignore="ScrollViewSize">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="488dp"
+                tools:ignore="UselessParent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fecha"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="18sp"
+                    android:gravity="right"
+                    tools:ignore="RtlHardcoded" />
+
+                <TextView
+                    android:text="@string/clavv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/claveC"
+                    android:textSize="20sp"
+                    android:textColor="#15c006"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="right"
+                    android:layout_marginRight="10dp"
+                    tools:ignore="RtlHardcoded" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <TextView
+                                android:text="@string/msg_nombre"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/RC_nombre"
+                                android:layout_weight="1"
+                                android:textSize="16sp"
+                                android:textColor="#15c006" />
+
+                            <EditText
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName"
+                                android:digits="qwertzuiopasdfghjklyxcvbnmñ,QWERTZUIOPASDFGHJKLYXCVBNMÑ, "
+                                android:ems="10"
+                                android:id="@+id/RC_name"
+                                android:layout_weight="1"
+                                android:hint="Chalino"
+                                tools:ignore="HardcodedText" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <TextView
+                                android:text="@string/tv_apellidP"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/CC_Ap"
+                                android:layout_weight="1"
+                                android:textSize="16sp"
+                                android:textColor="#15c006" />
+
+                            <EditText
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName"
+                                android:digits="qwertzuiopasdfghjklyxcvbnmñ,QWERTZUIOPASDFGHJKLYXCVBNMÑ, "
+                                android:ems="10"
+                                android:id="@+id/RC_Ap"
+                                android:layout_weight="1"
+                                android:hint="Sanchez"
+                                tools:ignore="HardcodedText" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <TextView
+                                android:text="@string/tv_apellidM"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/AMt"
+                                android:layout_weight="1"
+                                android:textSize="16sp"
+                                android:textColor="#15c006" />
+
+                            <EditText
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName"
+                                android:digits="qwertzuiopasdfghjklyxcvbnmñ,QWERTZUIOPASDFGHJKLYXCVBNMÑ, "
+                                android:ems="10"
+                                android:id="@+id/RC_Am"
+                                android:layout_weight="1"
+                                android:hint="Armenta"
+                                tools:ignore="HardcodedText" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <TextView
+                                android:text="@string/tv_RFC"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/RFCt"
+                                android:layout_weight="1"
+                                android:textSize="16sp"
+                                android:textColor="#15c006" />
+
+                            <EditText
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="textCapSentences"
+                                android:digits="qwertzuiopasdfghjklyxcvbnmñ,QWERTZUIOPASDFGHJKLYXCVBNMÑ,0,1,2,3,4,5,6,7,8,9"
+                                android:ems="10"
+                                android:id="@+id/RC_RFC"
+                                android:layout_weight="1"
+                                android:hint="ASD989898GHJ"
+                                tools:ignore="HardcodedText"
+                                android:maxLength="13" />
+                        </TableRow>
+                    </TableLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center">
+
+                    <Button
+                        android:text="@string/btn_cancell"
+                        android:layout_width="229dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/button2"
+                        android:layout_marginRight="15dp"
+                        android:onClick="close"
+                        tools:ignore="ButtonStyle,RtlHardcoded"
+                        tools:targetApi="lollipop"
+                        android:background="#15c006" />
+
+                    <Button
+                        android:text="@string/btn_save"
+                        android:layout_width="237dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/save"
+                        android:layout_marginRight="15dp"
+                        android:onClick="registrarCliente"
+                        tools:ignore="ButtonStyle,RtlHardcoded"
+                        tools:targetApi="lollipop"
+                        android:background="#15c006" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

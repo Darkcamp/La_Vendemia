@@ -1,5 +1,4 @@
-package com.vendimia.sanz.lavendimia;
-
+package vendemia.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,23 +6,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.vendimia.sanz.lavendimia.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Created by sanz on 2/12/16.
  */
-public class fragmnt_Clientes extends Fragment {
 
+public class startFragment extends Fragment{
 
-    public fragmnt_Clientes() {
-        // Required empty public constructor
-    }
-
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragmnt_clientes, container, false);
+        View fview= inflater.inflate(R.layout.fragment_start, container, false);
+                return fview;
     }
+
+
 
 }

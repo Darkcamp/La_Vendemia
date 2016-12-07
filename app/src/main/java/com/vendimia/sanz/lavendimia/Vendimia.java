@@ -1,9 +1,9 @@
 package com.vendimia.sanz.lavendimia;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,24 +13,45 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class Vendimia extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
 
-    @Override
+import com.example.sanzlibrary1_0_1.AsynResponse;
+import com.example.sanzlibrary1_0_1.ServerRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+
+import vendemia.fragments.fragmnt_Artiuclos;
+import vendemia.fragments.fragmnt_Clientes;
+import vendemia.fragments.fragmnt_Configuracion;
+import vendemia.fragments.fragmnt_Ventas;
+import vendemia.fragments.startFragment;
+
+public class Vendimia extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener,UpdateActionBarTitleFragment.OnFragmentInteractionListener,AsynResponse {
+    //variable para el manejo de los fragmentos
+    FragmentManager manager = getSupportFragmentManager();
+    //varibles de la libreria sanz para manejarlas en los distintos metodos
+    HashMap postData;
+    ServerRequest petecion;
+    String URL ="http://chali23.000webhostapp.com/Vendemia/";
+    String JSONCliente,JSONProduct,fecha;
+    //variables json
+    JSONObject jsonObject = null;
+    GlobalSetGet GSG = GlobalSetGet.getInstance();
+    Fragment clientes ;
+
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vendimia);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
+      manager.beginTransaction().replace(R.id.fragment_start,new startFragment()).commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -40,7 +61,39 @@ public class Vendimia extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        alldata();
+        //susitui cuando hagas el config
+        if(getIntent().getStringExtra("data") != null) {
+            String data = getIntent().getStringExtra("data");
+            try {
+                JSONObject date = new JSONObject(data);
+                GSG.setTasaF(date.getString("tasa"));
+                GSG.setEnganche(date.getString("enganche"));
+                GSG.setpMaximo(date.getString("plazoM"));
+                Log.d("Confi", date.toString());
+
+
+            } catch (JSONException e) {
+                e.getMessage();
+            }
+        }
     }
+    public void alldata(){
+         GSG.setURL(URL);
+        postData = new HashMap();
+        petecion = new ServerRequest(this, this);
+        postData.put("action", "all");
+        petecion.setSendData(postData);
+        try {
+        petecion.execute(URL + "autocomplete.php");
+            Log.d("xd",URL+"autocomplete.php");
+    }catch (Exception e){
+        Log.d("error cl",e.getMessage());
+    }
+
+
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -67,9 +120,7 @@ public class Vendimia extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -79,11 +130,82 @@ public class Vendimia extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        //para el cambio de fragmentos
 
+        //para cambair el titulo del barr
+        String title = "";
 
+        switch (id) {
+            case R.id.nav_sales:
 
+                manager.beginTransaction()
+                        .replace(R.id.fragment_start,
+                                new fragmnt_Ventas(),
+                                "ventas").commit();
+
+                title = "Ventas";
+
+                break;
+            case R.id.nav_client:
+                manager.beginTransaction()
+                        .replace(R.id.fragment_start,
+                                new fragmnt_Clientes(),
+                                "clientes").commit();
+
+                title = "Clientes";
+
+                break;
+            case R.id.nav_articles:
+                manager.beginTransaction()
+                        .replace(R.id.fragment_start,
+                                new fragmnt_Artiuclos(),
+                                "articulos").commit();
+
+                title = "Articulos";
+
+                break;
+
+            case R.id.nav_settings:
+                manager.beginTransaction()
+                        .replace(R.id.fragment_start,
+                                new fragmnt_Configuracion(),
+                                "configurarion").commit();
+
+                title = "Configuracion";
+
+                break;
+
+        }
+        getSupportActionBar().setTitle(title);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void onFragmentInteraction(String title) {
+        getSupportActionBar().setTitle(title);
+    }
+
+    @Override
+    public void postInternetCheck(Boolean aBoolean) {
+
+    }
+
+    @Override
+    public void postServeRequest(String s) {
+        Log.d("resquest",s);
+        try {
+            jsonObject = new JSONObject(s);
+            JSONCliente = jsonObject.getString("jsonclient");
+            GSG.setJSONClientes(JSONCliente);
+            JSONProduct = jsonObject.getString("jsonproduct");
+            GSG.setJSONProductos(JSONProduct);
+            fecha = jsonObject.getString("fecha");
+            GSG.setFecha(fecha);
+
+        } catch (Exception e) {
+            Log.d("error servidor",e.getMessage());
+        }
+
     }
 }

@@ -5,13 +5,92 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-
+    <!-- para el menu lateral -->
     <string name="nav_sales">Ventas</string>
     <string name="nav_client">Clientes</string>
     <string name="nav_articles">Articulos</string>
     <string name="nav_settings">Configuracion</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- para los fragmentos msg buttns ect -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="msg_inicial">¡Bienvenido!</string>
+    <string name="msg_vendemia">La Vendemia</string>
+    <!-- ventas -->
+    <string name="btn_venta">Nueva Venta</string>
+    <string name="msg_vactivas">Ventas Activas</string>
+    <string name="msg_folioV">Folio Ventas</string>
+    <string name="msg_calveC">Clave Cliente</string>
+    <string name="msg_nombre">Nombre</string>
+    <string name="msg_total">Total</string>
+    <string name="msg_fecha">Fecha</string>
+    <string name="msg_status">Estatus</string>
+    <!-- registro ventas -->
+    <string name="tv_cliente">Cliente</string>
+    <string name="tv_articulo">Articulo</string>
+    <string name="dscrip_articulo">Descripcion Articulo</string>
+    <string name="tv_modelo">Modelo</string>
+    <string name="tv_cantidad">Cantidad</string>
+    <string name="tv_precio">Precio</string>
+    <string name="tv_importe">Importe</string>
+    <string name="foli_venta">Folio Venta:</string>
+    <string name="tv_engache">Enganche</string>
+    <string name="bnf_Engache">Bonificacion Engache</string>
+    <string name="number_folio">0000</string>
+    <string name="btn_agregar"></string>
+    <!-- Registro clientes -->
+    <string name="tv_name">Nombre</string>
+    <string name="tv_apellidP">Apellido Paterno</string>
+    <string name="tv_apellidM">Apellido Materno</string>
+    <string name="tv_RFC">RFC</string>
+    <string name="title_activity_registro_ventas">Registro de Ventas</string>
+
+    <!-- buttons -->
+    <string name="btn_next">Siguiente</string>
+    <string name="btn_cancell">Cancelar</string>
+    <string name="btn_save">Guardar</string>
+    <!-- abones -->
+    <string name="abono_T">3 ABONOS DE</string>
+    <string name="abono_S">6 ABONOS DE</string>
+    <string name="abono_N">9 ABONOS DE</string>
+    <string name="abono_D">12 ABONOS DE</string>
+    <string name="ab_total">TOTAL A PAGAR$</string>
+    <string name="ahorroador">SE AHORRA</string>
+    <string name="abonomensual">Abonos Mensuales</string>
+
+    <!-- areglos para lo json -->
+    <string-array name="nventa">
+        <item>rfc</item>
+        <item>articulo</item>
+        <item>existencia</item>
+        <item>precio</item>
+    </string-array>
+    <string-array name="usuario">
+        <item>nombre</item>
+        <item>apellidoP</item>
+        <item>apellidoM</item>
+        <item>RFC</item>
+    </string-array>
+    <string-array name="articulo">
+        <item>Descripcion</item>
+        <item>Modelo</item>
+        <item>precio</item>
+        <item>existencia</item>
+    </string-array>
+    <string name="title_activity_registro__clientes">Registrar Clientes</string>
+    <string name="title_activity_edit_usuario">Editar Cliente</string>
+    <string name="title_activity_registro__articulo">Registrar Articulo</string>
+
+    <!-- clientes -->
+    <string name="clientesRdos">Clientes Registrados</string>
+    <string name="Cclientes">Clave Clientes</string>
+    <string name="clavv">Clave:</string>
+    <!-- articulos -->
+    <string name="ArtRes">Articulos Registrados</string>
+    <string name="CAarticulo">Clave Articulo</string>
+    <string name="DescripcionArt">Descripcion del Articulo</string>
+    <!-- configuracion -->
+    <string name="TasF">Tasa Finaciamiento:</string>
+    <string name="porcetaje">% Enganche:</string>
+    <string name="pmazismos">Plazo Maximo</string>
 </resources>

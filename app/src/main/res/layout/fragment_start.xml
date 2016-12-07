@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:paddingTop="100dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent"
+        android:gravity="fill_vertical|center_horizontal|center"
+        android:weightSum="1">
+
+        <TextView
+            android:text="@string/msg_inicial"
+            android:layout_width="wrap_content"
+            android:id="@+id/bienvenido"
+            android:gravity="center_vertical|center_horizontal|center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="24sp"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:text="@string/msg_vendemia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/vendemia"
+            tools:ignore="InefficientWeight"
+            android:layout_weight="0.08"
+            android:gravity="fill_vertical|center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+</FrameLayout>

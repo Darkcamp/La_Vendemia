@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:text="@string/msg_vactivas"
+            android:layout_width="248dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/TV_ventasA"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:layout_gravity="center" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:gravity="center"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:text="@string/msg_folioV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/TV_foliov"
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimary"
+                android:gravity="center" />
+
+            <TextView
+                android:text="@string/msg_calveC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView5"
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimary"
+                 />
+
+
+            <TextView
+                android:text="@string/msg_nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewN"
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimary"
+                />
+
+
+            <TextView
+                android:text="@string/msg_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView7"
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimary"
+              />
+
+            <TextView
+                android:text="@string/msg_fecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView8"
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimary"
+                />
+
+        </LinearLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvAlertas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
