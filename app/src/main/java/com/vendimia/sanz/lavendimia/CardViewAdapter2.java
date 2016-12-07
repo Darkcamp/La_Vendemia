@@ -17,10 +17,10 @@ import android.widget.TextView;
 import java.util.List;
 
 @SuppressLint("NewApi")
-public class cardViewAlertasAdapter2 extends RecyclerView.Adapter <cardViewAlertasAdapter2.cardViewAlertasHolder>{
+public class CardViewAdapter2 extends RecyclerView.Adapter <CardViewAdapter2.cardViewAlertasHolder>{
     GlobalSetGet GSG = GlobalSetGet.getInstance();
     private List<cardViewDistribute> listaAlertas;
-    public cardViewAlertasAdapter2(List<cardViewDistribute> alertaInfo) {
+    public CardViewAdapter2(List<cardViewDistribute> alertaInfo) {
         this.listaAlertas = alertaInfo;
     }
 
@@ -115,9 +115,6 @@ public class cardViewAlertasAdapter2 extends RecyclerView.Adapter <cardViewAlert
             importe =  (TextView)  v.findViewById(R.id.VC_importe);
             btn =  (ImageButton)  v.findViewById(R.id.cv_delte);
             cantidad = (EditText) v.findViewById(R.id.VC_cantidad);
-
-
-
 
         }
     }

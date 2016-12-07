@@ -18,14 +18,17 @@
             android:id="@+id/TV_ventasA"
             android:textSize="20sp"
             android:textColor="@color/colorPrimary"
-            android:layout_marginBottom="15dp" />
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:layout_gravity="center" />
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:gravity="center"
-            android:background="@android:color/darker_gray">
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="20dp">
 
             <TextView
                 android:text="@string/msg_folioV"

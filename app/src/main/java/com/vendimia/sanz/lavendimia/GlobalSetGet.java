@@ -11,7 +11,7 @@ public class GlobalSetGet {
     //articulos
     private static String productos,existencia,JSONProductos,articulos,cantexistente;
     //configuracion y otras
-    private static String URL,tasaF,enganche,pMaximo,fecha;
+    private static String URL,tasaF,enganche,pMaximo,fecha,FinalFolio,FinalCliente,finalProducto;
     private static double cantidad;
     private static int tc,tc2;
 
@@ -137,5 +137,39 @@ public class GlobalSetGet {
 
         return instance;
 
+    }
+
+
+    public int getTagC() {
+        return tc;
+    }
+
+    public void setTagC(int tagC) {
+        this.tc = tagC;
+    }
+
+
+    public void setTag2(int i) {
+        this.tc2 =i;
+    }
+    public void setFinalFolio(String FinalFolio){
+        this.FinalFolio = FinalFolio;
+    }
+    public String getFinalFolio(){
+        return FinalFolio;
+    }
+    public void setFinalCliente(String FinalCliente){
+        this.FinalCliente = FinalCliente;
+    }
+    public String getFinalCliente(){
+        return FinalCliente;
+    }
+
+    public void setFinalProducto(String finalProducto) {
+        this.finalProducto = finalProducto;
+    }
+
+    public String getFinalProduct() {
+        return finalProducto;
     }
 }

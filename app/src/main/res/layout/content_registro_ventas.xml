@@ -43,7 +43,7 @@
                        android:layout_height="wrap_content"
                        android:id="@+id/fol"
                        android:textSize="16sp"
-                       android:textColor="@android:color/holo_green_dark"
+                       android:textColor="#15c006"
                        android:gravity="end"
                       />
 
@@ -259,7 +259,7 @@
                                 android:gravity="end"
                                 android:layout_gravity="end"
                                 android:layout_marginLeft="75dp"
-                                tools:ignore="RtlHardcoded" />
+                                tools:ignore="NestedWeights,RtlHardcoded" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -375,7 +375,8 @@
                                                              <TableLayout
                                                                  android:layout_width="match_parent"
                                                                  android:layout_height="match_parent"
-                                                                 android:background="@android:color/darker_gray">
+                                                                 android:background="@android:color/darker_gray"
+                                                                 android:gravity="center">
 
                                                                  <TableRow
                                                                      android:layout_width="match_parent"
@@ -401,7 +402,7 @@
                                                                          android:layout_width="wrap_content"
                                                                          android:layout_height="wrap_content"
                                                                          android:id="@+id/ab_pagart3"
-                                                                         android:layout_marginLeft="40dp"
+                                                                         android:layout_marginLeft="20dp"
                                                                          tools:ignore="RtlHardcoded" />
 
                                                                      <TextView
@@ -416,7 +417,7 @@
                                                                          android:layout_width="wrap_content"
                                                                          android:layout_height="wrap_content"
                                                                          android:id="@+id/ab_rbtn3"
-                                                                         android:layout_marginLeft="60dp"
+                                                                         android:layout_marginLeft="40dp"
                                                                          tools:ignore="RtlHardcoded"
                                                                          android:onClick="radib" />
                                                                  </TableRow>
@@ -443,7 +444,7 @@
                                                                          android:layout_width="wrap_content"
                                                                          android:layout_height="wrap_content"
                                                                          android:id="@+id/ab_pagart6"
-                                                                         android:layout_marginLeft="40dp"
+                                                                         android:layout_marginLeft="20dp"
                                                                          tools:ignore="RtlHardcoded" />
 
                                                                      <TextView
@@ -458,7 +459,7 @@
                                                                          android:layout_width="wrap_content"
                                                                          android:layout_height="wrap_content"
                                                                          android:id="@+id/ab_rbtn6"
-                                                                         android:layout_marginLeft="60dp"
+                                                                         android:layout_marginLeft="40dp"
                                                                          tools:ignore="RtlHardcoded"
                                                                          android:onClick="radib" />
 
@@ -486,7 +487,7 @@
                                                                          android:layout_width="wrap_content"
                                                                          android:layout_height="wrap_content"
                                                                          android:id="@+id/ab_pagart9"
-                                                                         android:layout_marginLeft="40dp"
+                                                                         android:layout_marginLeft="20dp"
                                                                          tools:ignore="RtlHardcoded" />
 
                                                                      <TextView
@@ -501,7 +502,7 @@
                                                                          android:layout_width="wrap_content"
                                                                          android:layout_height="wrap_content"
                                                                          android:id="@+id/ab_rbtn9"
-                                                                         android:layout_marginLeft="60dp"
+                                                                         android:layout_marginLeft="40dp"
                                                                          tools:ignore="RtlHardcoded"
                                                                          android:onClick="radib" />
                                                                  </TableRow>
@@ -528,7 +529,7 @@
                                                                          android:layout_width="wrap_content"
                                                                          android:layout_height="wrap_content"
                                                                          android:id="@+id/ab_pagart12"
-                                                                         android:layout_marginLeft="40dp"
+                                                                         android:layout_marginLeft="20dp"
                                                                          tools:ignore="RtlHardcoded" />
 
                                                                      <TextView
@@ -543,7 +544,7 @@
                                                                          android:layout_width="wrap_content"
                                                                          android:layout_height="wrap_content"
                                                                          android:id="@+id/ab_rbtn12"
-                                                                         android:layout_marginLeft="60dp"
+                                                                         android:layout_marginLeft="40dp"
                                                                          tools:ignore="RtlHardcoded"
                                                                          android:onClick="radib" />
 
@@ -582,7 +583,7 @@
                                                                      android:layout_height="wrap_content"
                                                                      android:id="@+id/lyf_save"
                                                                      tools:ignore="ButtonStyle"
-                                                                     android:onClick="save" />
+                                                                     android:onClick="guardarventa" />
                                                              </LinearLayout>
 
                                                          </LinearLayout>

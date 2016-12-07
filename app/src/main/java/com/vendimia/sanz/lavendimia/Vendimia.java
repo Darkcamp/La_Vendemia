@@ -1,13 +1,9 @@
 package com.vendimia.sanz.lavendimia;
 
-import android.app.ActionBar;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -26,6 +22,9 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
+import vendemia.fragments.fragmnt_Artiuclos;
+import vendemia.fragments.fragmnt_Clientes;
+import vendemia.fragments.fragmnt_Configuracion;
 import vendemia.fragments.fragmnt_Ventas;
 import vendemia.fragments.startFragment;
 
@@ -41,6 +40,8 @@ public class Vendimia extends AppCompatActivity
     //variables json
     JSONObject jsonObject = null;
     GlobalSetGet GSG = GlobalSetGet.getInstance();
+    Fragment clientes ;
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +63,20 @@ public class Vendimia extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         alldata();
         //susitui cuando hagas el config
-        GSG.setpMaximo("12");
-        GSG.setEnganche("20");
-        GSG.setTasaF("2.8");
+        if(getIntent().getStringExtra("data") != null) {
+            String data = getIntent().getStringExtra("data");
+            try {
+                JSONObject date = new JSONObject(data);
+                GSG.setTasaF(date.getString("tasa"));
+                GSG.setEnganche(date.getString("enganche"));
+                GSG.setpMaximo(date.getString("plazoM"));
+                Log.d("Confi", date.toString());
+
+
+            } catch (JSONException e) {
+                e.getMessage();
+            }
+        }
     }
     public void alldata(){
          GSG.setURL(URL);
@@ -137,7 +149,7 @@ public class Vendimia extends AppCompatActivity
             case R.id.nav_client:
                 manager.beginTransaction()
                         .replace(R.id.fragment_start,
-                                new fragmnt_Ventas(),
+                                new fragmnt_Clientes(),
                                 "clientes").commit();
 
                 title = "Clientes";
@@ -146,7 +158,7 @@ public class Vendimia extends AppCompatActivity
             case R.id.nav_articles:
                 manager.beginTransaction()
                         .replace(R.id.fragment_start,
-                                new fragmnt_Ventas(),
+                                new fragmnt_Artiuclos(),
                                 "articulos").commit();
 
                 title = "Articulos";
@@ -156,7 +168,7 @@ public class Vendimia extends AppCompatActivity
             case R.id.nav_settings:
                 manager.beginTransaction()
                         .replace(R.id.fragment_start,
-                                new fragmnt_Ventas(),
+                                new fragmnt_Configuracion(),
                                 "configurarion").commit();
 
                 title = "Configuracion";

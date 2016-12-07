@@ -1,9 +1,7 @@
 package com.vendimia.sanz.lavendimia;
 
 
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,27 +24,21 @@ import com.example.sanzlibrary1_0_1.ServerRequest;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 
-import static com.vendimia.sanz.lavendimia.R.id.ab_rbtn12;
-import static com.vendimia.sanz.lavendimia.R.id.ab_rbtn3;
-import static com.vendimia.sanz.lavendimia.R.id.ab_rbtn6;
-import static com.vendimia.sanz.lavendimia.R.id.ab_rbtn9;
-
-public class RegistroVentas extends AppCompatActivity implements AsynResponse {
+public class RegistroVentas extends AppCompatActivity implements AsynResponse{
 
 
     //instancias
     GlobalSetGet GSG = GlobalSetGet.getInstance();
     List<cardViewDistribute> result;
     formuls fm = new formuls();
-
+    private DatoJson JSONParser = null;
+    ServerRequest sr;
     //variables de layout
     TextView tv_rfc,tv_fecha;
     AutoCompleteTextView cliente, articulo;
@@ -73,6 +65,8 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse {
     int aux_pm;
     //globales ne la clase
     double total_adeudo,precio_contado;
+    double radio_meses;
+    double tpaga3,tpaga6,tpaga9,tpaga12;
 
 
     @Override
@@ -93,6 +87,8 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse {
         next = (LinearLayout) findViewById(R.id.ly_next);
         save = (Button) findViewById(R.id.lyf_save);
         save.setEnabled(false);
+        TextView folventa = (TextView)findViewById(R.id.fol);
+        folventa.append(" "+GSG.getFinalFolio());
 
 
 
@@ -190,7 +186,7 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse {
             HashMap postData = new HashMap();
             postData.put("action","consultar");
             postData.put("contenido", articulo.getText().toString());
-            ServerRequest sr = new ServerRequest(this,this);
+            sr= new ServerRequest(this,this);
             sr.setSendData(postData);
             sr.execute(GSG.getURL()+"articulos.php");
         }
@@ -204,7 +200,7 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse {
         LinearLayoutManager llm = new LinearLayoutManager(this.getApplication());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         RV_contenido.setLayoutManager(llm);
-        cardViewAlertasAdapter2 cAdapt = new cardViewAlertasAdapter2(crearLista(100,result));
+        CardViewAdapter2 cAdapt = new CardViewAdapter2(crearLista(100,result));
         RV_contenido.setAdapter(cAdapt);
         RecyclerView.ItemAnimator animator = RV_contenido.getItemAnimator();
         animator.setAddDuration(1000);
@@ -219,9 +215,22 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse {
 
     @Override
     public void postServeRequest(String s) {
-        settable(s);
-       postAddprodcut();
-
+        String st[] = s.split("-");
+         if(st[0].equals("0")){
+             Toast.makeText(this, "Bien Hecho, Tu venta ha sido registrada correctamente", Toast.LENGTH_LONG).show();
+             finish();
+         }else if(st[0].equals("1")) {
+             Toast.makeText(this, "El artículo seleccionado no cuenta con existencia, favor de verificar.", Toast.LENGTH_SHORT).show();
+         }else if(st[0].equals("2")) {
+             Toast.makeText(this, "Error inesperado", Toast.LENGTH_SHORT).show();
+         }
+         else if(st[0].equals("")) {
+             Toast.makeText(this, "Error en el servidor", Toast.LENGTH_SHORT).show();
+         }
+         else {
+            settable(s);
+            postAddprodcut();
+        }
 
 
 
@@ -251,7 +260,7 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse {
         enga_engache.setText(String.valueOf(total));
     }
     public void next(View v){
-        double tpaga3,tpaga6,tpaga9,tpaga12;
+
         DecimalFormat decimal = new DecimalFormat("0.00");
         abonos.setVisibility(View.VISIBLE);
         next.setVisibility(View.INVISIBLE);
@@ -315,48 +324,62 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse {
                     rbtn_6.setChecked(false);
                     rbtn_9.setChecked(false);
                     rbtn_12.setChecked(false);
+                radio_meses=tpaga3;
                 break;
             case R.id.ab_rbtn6:
                 if(ifcheck)
                     rbtn_3.setChecked(false);
                     rbtn_9.setChecked(false);
                     rbtn_12.setChecked(false);
+                radio_meses=tpaga6;
                 break;
             case R.id.ab_rbtn9:
                 if(ifcheck)
                     rbtn_3.setChecked(false);
                     rbtn_6.setChecked(false);
                     rbtn_12.setChecked(false);
+                radio_meses=tpaga9;
                 break;
             case R.id.ab_rbtn12:
                 if(ifcheck)
                     rbtn_3.setChecked(false);
                     rbtn_6.setChecked(false);
                     rbtn_9.setChecked(false);
+                radio_meses=tpaga12;
                 break;
         }
 
     }
-    public void save(View v){
-        String fl = folio.toString();
-        String nm = rfc.getText().toString();
-        String pm = plazosMeses.toString();
-        String ar = articulo.getText().toString();
-        String ex = g.getExistencia();
-        String art = g.getArticulo();
-        if(art.equals("") || nm.equals("") || pm.equals("") || ar.equals("") || ex.equals("")){
+    public void guardarventa(View v){
+
+        String sentrfc = tv_rfc.getText().toString();
+        String srfc[] = sentrfc.split("RFC: ");
+
+        int ex = Integer.parseInt(GSG.getCantexistente())-1;
+        String art = GSG.getArticulos();
+        String deuda =String.valueOf(radio_meses);
+        String clienten = GSG.getClientes();
+
+        if(sentrfc.equals("") || art.equals("") ){
+            //msg aqui...
 
         }else{
             HashMap postData = new HashMap();
-            PostResponseAsyncTask httpost = new PostResponseAsyncTask(this, this);
-            postData.put("folio", fl);
-            postData.put("nombre", nm);
-            postData.put("total", pm);
-            postData.put("descripcion", ar);
-            postData.put("exis",ex);
-            postData.put("artc",art);
-            httpost.setPostData(postData);
-            httpost.execute("http://single-lemonjuice.netau.net/ventas/venta_registrada.php");
+            sr= new ServerRequest(this,this);
+            postData.put("rfc", srfc[1]);
+            //postData.put("fecha",fecha);
+            postData.put("articulo", art);
+            postData.put("existencia",""+ex);
+            postData.put("deuda", deuda);
+            sr.setSendData(postData);
+            try{
+                sr.execute(GSG.getURL()+"ventas.php");
+            }
+            catch (Exception e){
+            Log.d("error al eviar",e.getMessage());}
+        }
+
+
     }
 
 }

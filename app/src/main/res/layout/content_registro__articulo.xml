@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_registro__articulo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.vendimia.sanz.lavendimia.registro_Articulo"
+    tools:showIn="@layout/activity_registro__articulo">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="517dp"
+                tools:ignore="UselessParent">
+
+                <TextView
+                    android:text="TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fecha"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="18sp"
+                    android:gravity="right"
+                    tools:ignore="HardcodedText,RtlHardcoded" />
+
+
+                <TextView
+                    android:text="@string/clavv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/claveA"
+                    android:textSize="20sp"
+                    android:textColor="#15c006"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="right"
+                    android:layout_marginRight="10dp"
+                    tools:ignore="RtlHardcoded" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="233dp">
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <TextView
+                                android:text="@string/DescripcionArt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/RSDsp"
+                                android:layout_weight="1"
+                                android:textSize="16sp"
+                                android:textColor="#15c006" />
+
+                            <EditText
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName"
+                                android:digits="qwertzuiopasdfghjklyxcvbnmñ,QWERTZUIOPASDFGHJKLYXCVBNMÑ,0,1,2,3,4,5,6,7,8,9, "
+                                android:ems="10"
+                                android:id="@+id/RA_DsArt"
+                                android:layout_weight="1"
+                                android:hint="Desripción Del Articulo..."
+                                tools:ignore="HardcodedText" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <TextView
+                                android:text="@string/tv_modelo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/RA_Modelo"
+                                android:layout_weight="1"
+                                android:textSize="16sp"
+                                android:textColor="#15c006"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="textPersonName"
+                                android:digits="qwertzuiopasdfghjklyxcvbnmñ,QWERTZUIOPASDFGHJKLYXCVBNMÑ,0,1,2,3,4,5,6,7,8,9,-,_, "
+                                android:ems="10"
+                                android:id="@+id/RA_modelo"
+                                android:layout_weight="1"
+                                android:hint="Modelo Del Articulo..."
+                                tools:ignore="HardcodedText" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <TextView
+                                android:text="@string/tv_precio"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/Rs_Precio"
+                                android:textColor="#15c006" />
+
+                            <EditText
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="numberDecimal"
+                                android:ems="10"
+                                android:id="@+id/RA_precio"
+                                android:hint="precio 34.5"
+                                tools:ignore="HardcodedText" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            tools:ignore="UselessLeaf">
+
+                            <TextView
+                                android:text="Existencia"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView4"
+                                android:textColor="#15c006"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:ems="10"
+                                android:id="@+id/RA_existe"
+                                android:hint="123"
+                                tools:ignore="HardcodedText" />
+
+                        </TableRow>
+                    </TableLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="441dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center">
+
+                    <Button
+                        android:text="@string/btn_cancell"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/button2"
+                        android:layout_weight="1"
+                        android:layout_marginRight="15dp"
+                        android:onClick="close"
+                        android:background="#15c006"
+                        tools:ignore="ButtonStyle,RtlHardcoded" />
+
+                    <Button
+                        android:text="@string/btn_save"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/guardadito"
+                        android:layout_weight="1"
+                        android:layout_marginRight="15dp"
+                        android:background="#15c006"
+                        tools:ignore="ButtonStyle,RtlHardcoded"
+                        android:onClick="guardararticuloaa" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

@@ -49,7 +49,7 @@
     <string name="btn_next">Siguiente</string>
     <string name="btn_cancell">Cancelar</string>
     <string name="btn_save">Guardar</string>
-     <!-- abones -->
+    <!-- abones -->
     <string name="abono_T">3 ABONOS DE</string>
     <string name="abono_S">6 ABONOS DE</string>
     <string name="abono_N">9 ABONOS DE</string>
@@ -58,4 +58,39 @@
     <string name="ahorroador">SE AHORRA</string>
     <string name="abonomensual">Abonos Mensuales</string>
 
+    <!-- areglos para lo json -->
+    <string-array name="nventa">
+        <item>rfc</item>
+        <item>articulo</item>
+        <item>existencia</item>
+        <item>precio</item>
+    </string-array>
+    <string-array name="usuario">
+        <item>nombre</item>
+        <item>apellidoP</item>
+        <item>apellidoM</item>
+        <item>RFC</item>
+    </string-array>
+    <string-array name="articulo">
+        <item>Descripcion</item>
+        <item>Modelo</item>
+        <item>precio</item>
+        <item>existencia</item>
+    </string-array>
+    <string name="title_activity_registro__clientes">Registrar Clientes</string>
+    <string name="title_activity_edit_usuario">Editar Cliente</string>
+    <string name="title_activity_registro__articulo">Registrar Articulo</string>
+
+    <!-- clientes -->
+    <string name="clientesRdos">Clientes Registrados</string>
+    <string name="Cclientes">Clave Clientes</string>
+    <string name="clavv">Clave:</string>
+    <!-- articulos -->
+    <string name="ArtRes">Articulos Registrados</string>
+    <string name="CAarticulo">Clave Articulo</string>
+    <string name="DescripcionArt">Descripcion del Articulo</string>
+    <!-- configuracion -->
+    <string name="TasF">Tasa Finaciamiento:</string>
+    <string name="porcetaje">% Enganche:</string>
+    <string name="pmazismos">Plazo Maximo</string>
 </resources>
