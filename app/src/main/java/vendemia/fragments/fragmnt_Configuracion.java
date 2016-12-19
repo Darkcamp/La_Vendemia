@@ -28,9 +28,6 @@ import java.io.File;
 import java.io.FileWriter;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class fragmnt_Configuracion extends Fragment {
     GlobalSetGet GSG = GlobalSetGet.getInstance();
     EditText taza,eng,plazo;
@@ -77,8 +74,8 @@ public class fragmnt_Configuracion extends Fragment {
 
         if(tasa.equals("") || enga.equals("") || plazom.equals("")){
             Toast.makeText(getActivity(), "No es posible continuar, hay campos vacios.", Toast.LENGTH_SHORT).show();
-            if(tasa.equals("")){taza.setError("Campo obligatorio!");}
-            if(enga.equals("")){eng.setError("Campo obligatorio!");}
+            if(tasa.equals("")){taza.setError("El campo es obligatorio!");}
+            if(enga.equals("")){eng.setError("El campo es obligatorio!");}
         }else{
             try {
                 JSONObject obj = new JSONObject();

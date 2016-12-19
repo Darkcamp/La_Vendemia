@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class RegistroVentas extends AppCompatActivity implements AsynResponse{
-
+//una de las clases mas relvoltosa
 
     //instancias
     GlobalSetGet GSG = GlobalSetGet.getInstance();
@@ -95,7 +95,8 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse{
         autocomplet();
     }
     public void autocomplet(){
-
+ /// este metodo uso para ambos auto complet, para facilitarme lo del rfc se lo añadi al cliente con un "-"
+        // de esta amnera lo estraijo mas rapido
         JSONClientes = GSG.getJSONClientes();
         JSONProducts = GSG.getJSONProductos();
         fecha = GSG.getFecha().split("-");
@@ -112,7 +113,6 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse{
                 cliente.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                         String str[] = ((TextView)view).getText().toString().split("-");
                         tv_rfc.setText("RFC: "+str[1]);
                         cliente.setText(str[0]);
@@ -126,7 +126,7 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse{
             e.getMessage();
 
         }
-
+        //desde aqui se empieza con los productos
         try {
             JSA2= new JSONArray(JSONProducts.toString());
             for (int l = 0; l <= JSA2.length(); l++) {
@@ -148,6 +148,8 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse{
 
     private List<cardViewDistribute> crearLista(int size, String json){
         result = new ArrayList<>();
+        double d ;
+//no vamos ala parte de cadview donde se pone el picio dle artiuclo selecionado
                 try{
 
             decimal = new DecimalFormat("0.00");
@@ -155,9 +157,9 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse{
             cardViewDistribute cvd = new cardViewDistribute();
             cvd.descripcion = jsonobject.getString("Descripcion");
             GSG.setArticulos(jsonobject.getString("Descripcion"));
-            cvd.modelo = jsonobject.getString("Modelo");
+            cvd.modelo = jsonobject.getString("Precio"); //cambiar depues a Modelo, pro precio y viseversa.
             cvd.cantidad = 1;
-            cvd.precio = jsonobject.getString("Precio");
+            cvd.precio = jsonobject.getString("Modelo");//co
             double pre = Double.parseDouble(jsonobject.getString("Precio"));
             double importe = pre * cvd.cantidad;
             cvd.importe = decimal.format(importe) + "";
@@ -193,6 +195,7 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse{
 
     }
     public void settable(String result){
+//llamamos ala tabla para crealar y creale una lista de 100 items (como reserva d mmrai
 
 
         RV_contenido = (RecyclerView) findViewById(R.id.RView_a2);
@@ -200,14 +203,13 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse{
         LinearLayoutManager llm = new LinearLayoutManager(this.getApplication());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         RV_contenido.setLayoutManager(llm);
-        CardViewAdapter2 cAdapt = new CardViewAdapter2(crearLista(100,result));
+        CardViewNuevaVenta cAdapt = new CardViewNuevaVenta(crearLista(100,result));
         RV_contenido.setAdapter(cAdapt);
         RecyclerView.ItemAnimator animator = RV_contenido.getItemAnimator();
         animator.setAddDuration(1000);
         animator.setRemoveDuration(500);
 
     }
-
     @Override
     public void postInternetCheck(Boolean aBoolean) {
 
@@ -218,6 +220,7 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse{
         String st[] = s.split("-");
          if(st[0].equals("0")){
              Toast.makeText(this, "Bien Hecho, Tu venta ha sido registrada correctamente", Toast.LENGTH_LONG).show();
+
              finish();
          }else if(st[0].equals("1")) {
              Toast.makeText(this, "El artículo seleccionado no cuenta con existencia, favor de verificar.", Toast.LENGTH_SHORT).show();
@@ -236,11 +239,12 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse{
 
     }
     public void reload(View v){
+  // para volver a cargar los precios , usamos este emtodo para que cuando cambien la cantida se modifiquen.
         postAddprodcut();
     }
     public void postAddprodcut(){
+      //metodos para agregar el producto
         decimal = new DecimalFormat("0.00");
-
         engaches.setVisibility(View.VISIBLE);
         next.setVisibility(View.VISIBLE);
         //tv-lyaout engache
@@ -260,50 +264,50 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse{
         enga_engache.setText(String.valueOf(total));
     }
     public void next(View v){
+// este metodo es para incializar los item de cunaod le des siguientes y donde se hacen las formulas
+             DecimalFormat decimal = new DecimalFormat("0.00");
+             abonos.setVisibility(View.VISIBLE);
+             next.setVisibility(View.INVISIBLE);
+             end.setVisibility(View.VISIBLE);
+             aux_engache = Double.parseDouble(GSG.getEnganche());
+             aux_importe = GSG.getCantidad();
+             aux_tasita = Double.parseDouble(GSG.getTasaF());
+             aux_pm = Integer.parseInt(GSG.getpMaximo());
+             abonos_d3 = (TextView) findViewById(R.id.Ab_resu3);
+             abonos_d6 = (TextView) findViewById(R.id.Ab_resu6);
+             abonos_d9 = (TextView) findViewById(R.id.Ab_resu9);
+             abonos_d12 = (TextView) findViewById(R.id.Ab_resu12);
+             pagaa_d3 = (TextView) findViewById(R.id.ab_pagart3);
+             pagaa_d6 = (TextView) findViewById(R.id.ab_pagart6);
+             pagaa_d9 = (TextView) findViewById(R.id.ab_pagart9);
+             pagaa_d12 = (TextView) findViewById(R.id.ab_pagart12);
+             ahorra_3 = (TextView) findViewById(R.id.ahorra_3);
+             ahorra_6 = (TextView) findViewById(R.id.ahorra_6);
+             ahorra_9 = (TextView) findViewById(R.id.ahorra_9);
+             ahorra_12 = (TextView) findViewById(R.id.ahorra_12);
+             precio_contado = fm.preciocontado(total_adeudo, aux_tasita, aux_pm);
+             tpaga3 = fm.total_pagar(precio_contado, aux_tasita, 3);
+             tpaga6 = fm.total_pagar(precio_contado, aux_tasita, 6);
+             tpaga9 = fm.total_pagar(precio_contado, aux_tasita, 9);
+             tpaga12 = fm.total_pagar(precio_contado, aux_tasita, 12);
+             pagaa_d3.append(" " + tpaga3);
+             pagaa_d6.append(" " + tpaga6);
+             pagaa_d9.append(" " + tpaga9);
+             pagaa_d12.append(" " + tpaga12);
+             abonos_d3.setText("$" + decimal.format(tpaga3 / 3));
+             abonos_d6.setText("$" + decimal.format(tpaga3 / 6));
+             abonos_d12.setText("$" + decimal.format(tpaga3 / 9));
+             abonos_d9.setText("$" + decimal.format(tpaga3 / 12));
+             ahorra_3.append(" $" + decimal.format(total_adeudo - tpaga3));
+             ahorra_6.append(" $" + decimal.format(total_adeudo - tpaga6));
+             ahorra_9.append(" $" + decimal.format(total_adeudo - tpaga9));
+             ahorra_12.append(" $" + decimal.format(total_adeudo - tpaga12));
+             rbtn_3 = (RadioButton) findViewById(R.id.ab_rbtn3);
+             rbtn_6 = (RadioButton) findViewById(R.id.ab_rbtn6);
+             rbtn_9 = (RadioButton) findViewById(R.id.ab_rbtn9);
+             rbtn_12 = (RadioButton) findViewById(R.id.ab_rbtn12);
+         }
 
-        DecimalFormat decimal = new DecimalFormat("0.00");
-        abonos.setVisibility(View.VISIBLE);
-        next.setVisibility(View.INVISIBLE);
-        end.setVisibility(View.VISIBLE);
-        aux_engache =Double.parseDouble(GSG.getEnganche());
-        aux_importe = GSG.getCantidad();
-        aux_tasita = Double.parseDouble(GSG.getTasaF());
-        aux_pm = Integer.parseInt(GSG.getpMaximo());
-        abonos_d3 =(TextView)findViewById(R.id.Ab_resu3);
-        abonos_d6 =(TextView)findViewById(R.id.Ab_resu6);
-        abonos_d9 =(TextView)findViewById(R.id.Ab_resu9);
-        abonos_d12 =(TextView)findViewById(R.id.Ab_resu12);
-        pagaa_d3 =(TextView)findViewById(R.id.ab_pagart3);
-        pagaa_d6 =(TextView)findViewById(R.id.ab_pagart6);
-        pagaa_d9 =(TextView)findViewById(R.id.ab_pagart9);
-        pagaa_d12 =(TextView)findViewById(R.id.ab_pagart12);
-        ahorra_3=(TextView)findViewById(R.id.ahorra_3);
-        ahorra_6 =(TextView)findViewById(R.id.ahorra_6);
-        ahorra_9=(TextView)findViewById(R.id.ahorra_9);
-        ahorra_12=(TextView)findViewById(R.id.ahorra_12);
-       precio_contado = fm.preciocontado(total_adeudo,aux_tasita,aux_pm);
-        tpaga3 =fm.total_pagar(precio_contado,aux_tasita,3);
-        tpaga6 =fm.total_pagar(precio_contado,aux_tasita,6);
-        tpaga9 = fm.total_pagar(precio_contado,aux_tasita,9);
-        tpaga12 = fm.total_pagar(precio_contado,aux_tasita,12);
-        pagaa_d3.append(" "+tpaga3);
-        pagaa_d6.append(" "+tpaga6);
-        pagaa_d9.append(" "+tpaga9);
-        pagaa_d12.append(" "+tpaga12);
-        abonos_d3.setText("$"+ decimal.format(tpaga3/3));
-        abonos_d6.setText("$"+ decimal.format(tpaga3/6));
-        abonos_d12.setText("$"+ decimal.format(tpaga3/9));
-        abonos_d9.setText("$"+ decimal.format(tpaga3/12));
-        ahorra_3.append(" $"+decimal.format(total_adeudo-tpaga3));
-        ahorra_6.append(" $"+decimal.format(total_adeudo-tpaga6));
-        ahorra_9.append(" $"+decimal.format(total_adeudo-tpaga9));
-        ahorra_12.append(" $"+decimal.format(total_adeudo-tpaga12));
-        rbtn_3 = (RadioButton)findViewById(R.id.ab_rbtn3);
-        rbtn_6 = (RadioButton)findViewById(R.id.ab_rbtn6);
-        rbtn_9 = (RadioButton)findViewById(R.id.ab_rbtn9);
-        rbtn_12 = (RadioButton)findViewById(R.id.ab_rbtn12);
-
-    }
 
     public void Cancelar(View v){
         abonos.setVisibility(View.INVISIBLE);
@@ -314,6 +318,7 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse{
         settable("");
     }
     public void radib(View v){
+       //para saber que button tenemos check o a cuantos meses queremos pagar
         boolean ifcheck = ((RadioButton) v).isChecked();
         save.setEnabled(true);
         // cual tienes check
@@ -351,7 +356,8 @@ public class RegistroVentas extends AppCompatActivity implements AsynResponse{
 
     }
     public void guardarventa(View v){
-
+  //para sacar la venta. ok aqui fue un error mio, pues al crear el texview d RFC yo agrego rfc : desde codigo
+        //por lo tanto tengo que separalo por la misma palabras
         String sentrfc = tv_rfc.getText().toString();
         String srfc[] = sentrfc.split("RFC: ");
 

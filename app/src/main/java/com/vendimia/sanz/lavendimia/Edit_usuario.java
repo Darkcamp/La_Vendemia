@@ -103,7 +103,7 @@ public class Edit_usuario extends AppCompatActivity implements AsynResponse {
                     public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
                         dialog.cancel();
                     }
-                }).setTitle("Alerta!").setIcon(android.R.drawable.ic_menu_report_image).create();
+                }).setTitle("Alerta!").setIcon(android.R.drawable.ic_dialog_alert).create();
         alert = builder.create();
         alert.show();
     }

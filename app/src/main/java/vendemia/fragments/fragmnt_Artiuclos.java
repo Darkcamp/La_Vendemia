@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ServiceCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -18,16 +17,12 @@ import android.widget.Toast;
 
 import com.example.sanzlibrary1_0_1.AsynResponse;
 import com.example.sanzlibrary1_0_1.ServerRequest;
-import com.kosalgeek.genasync12.AsyncResponse;
-import com.kosalgeek.genasync12.PostResponseAsyncTask;
-import com.vendimia.sanz.lavendimia.CardViewAdapter4;
+import com.vendimia.sanz.lavendimia.CardViewArticulo;
 import com.vendimia.sanz.lavendimia.Edit_articulo;
-import com.vendimia.sanz.lavendimia.Edit_usuario;
 import com.vendimia.sanz.lavendimia.GlobalSetGet;
 import com.vendimia.sanz.lavendimia.R;
 import com.vendimia.sanz.lavendimia.cardViewDistribute;
 import com.vendimia.sanz.lavendimia.registro_Articulo;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,9 +32,6 @@ import java.util.HashMap;
 import java.util.List;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class fragmnt_Artiuclos extends Fragment implements AsynResponse{
     GlobalSetGet GSG = GlobalSetGet.getInstance();
     List<cardViewDistribute> result;
@@ -70,12 +62,10 @@ public class fragmnt_Artiuclos extends Fragment implements AsynResponse{
     }
 
     public void response(){
-        HashMap postData = new HashMap();
-        //postData.put("action","consultar");
+      //pedimo al servidor la lista de articulos
         ServerRequest ser = new ServerRequest(getActivity(), this);
         ser.execute(GSG.getURL()+"articulo.php");
     }
-
     @Override
     public void onResume() {
         super.onResume();
@@ -86,7 +76,8 @@ public class fragmnt_Artiuclos extends Fragment implements AsynResponse{
         super.onStop();
         myTask.cancel(true);
     }
-
+//al igual que el apartdo de lcientes, aqui se hace un pequeño truco para extraer el id del cliente ultimo
+    //y mandar al adapter los items correspondientes
     private List<cardViewDistribute> createList(int size, String json) {
         String JSONCliente,fecha,JSONProduct;
         JSONObject jsonObject = null;
@@ -118,7 +109,6 @@ public class fragmnt_Artiuclos extends Fragment implements AsynResponse{
         return result;
     }
 
-
     public void initializeRecyclerView(String s) {
         recList = (RecyclerView) myView.findViewById(R.id.rvAlertas);
         recList.setHasFixedSize(true);
@@ -126,7 +116,7 @@ public class fragmnt_Artiuclos extends Fragment implements AsynResponse{
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
-        CardViewAdapter4 ca = new CardViewAdapter4(createList(100,s));
+        CardViewArticulo ca = new CardViewArticulo(createList(100,s));
         recList.setAdapter(ca);
         RecyclerView.ItemAnimator animator = recList.getItemAnimator();
         animator.setAddDuration(1000);
@@ -137,7 +127,6 @@ public class fragmnt_Artiuclos extends Fragment implements AsynResponse{
     public void postInternetCheck(Boolean aBoolean) {
 
     }
-
     @Override
     public void postServeRequest(String s) {
         Log.d("asycTask",s);
@@ -150,7 +139,7 @@ public class fragmnt_Artiuclos extends Fragment implements AsynResponse{
 
         }
     }
-    //tarea para recuperar los clientes
+    //tarea para recuperar los artiuclos y esperamos el onclick para lansar modificar articulos
     private class AsyncTaskRunner extends AsyncTask<String, String, String> {
 
         private String resp;
@@ -180,11 +169,15 @@ public class fragmnt_Artiuclos extends Fragment implements AsynResponse{
 
         final Runnable r = new Runnable() {
             public void run() {
-                if(GSG.getTagC() == 1) {
-                    Intent edit = new Intent(getActivity(),Edit_articulo.class);
-                    edit.putExtra("data", GSG.getJSONProductos());
-                    startActivity(edit);
-                    GSG.setTag2(0);
+                if(GSG.getTc2() == 1) {
+                    try{
+                        Intent edit = new Intent(getActivity(),Edit_articulo.class);
+                        edit.putExtra("data", GSG.getJSONProductos());
+                        startActivity(edit);
+                        GSG.setTag2(0);}catch (Exception e){
+                        Log.d("error ",e.getMessage());
+
+                    }
                 }
                 Log.d("task", "Task is running");
                 handler.postDelayed(this, 300);

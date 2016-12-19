@@ -10,43 +10,62 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center">
+            android:gravity="center"
+            tools:ignore="DisableBaselineAlignment,UselessParent"
+            android:weightSum="1">
 
-            <TextView
-                android:text="@string/msg_calveC"
+            <TableRow
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                tools:ignore="InefficientWeight,RtlHardcoded"
+                android:layout_weight="0.52">
+
+                <TextView
+                    android:text="@string/msg_calveC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/C_clave"
+                    android:layout_weight="0.15"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="369dp"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="@string/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/C_nombre"
+                    android:layout_weight="1.08"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center" />
+            </TableRow>
+
+            <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/clave"
-                android:layout_weight="0.15"
-                android:textColor="@color/colorPrimary"
-                android:gravity="center" />
+                android:layout_height="match_parent">
 
-            <TextView
-                android:text="@string/tv_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/name"
-                android:layout_weight="1.15"
-                android:textColor="@color/colorPrimary"
-                android:gravity="center" />
+                <ImageButton
+                    android:layout_height="wrap_content"
+                    card_view:srcCompat="@android:drawable/ic_menu_view"
+                    android:id="@+id/C_edit"
+                    android:layout_weight="0.19"
+                    tools:ignore="ContentDescription,RtlHardcoded"
+                    android:layout_width="60dp"
+                    android:layout_gravity="left|end" />
+            </TableRow>
 
-            <TextView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:id="@+id/edit"
-                android:layout_weight="0.13"
-                android:textColor="@color/colorPrimary"
-                android:gravity="center"
-                android:background="@android:drawable/ic_menu_view"
-                android:layout_marginLeft="10dp"
-                tools:ignore="RtlHardcoded" />
         </LinearLayout>
 
         <TextView
             android:text="TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/hiden"
+            android:id="@+id/idclienteoculto"
             android:visibility="invisible"
             android:enabled="false"
             tools:ignore="HardcodedText" />

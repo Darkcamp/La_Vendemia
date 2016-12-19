@@ -13,22 +13,16 @@ import com.vendimia.sanz.lavendimia.R;
 import com.vendimia.sanz.lavendimia.UpdateActionBarTitleFragment;
 
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class fragmnt_Rventas extends Fragment {
 
 
     public fragmnt_Rventas() {
         // Required empty public constructor
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         if (mListener != null) {
             mListener.onFragmentInteraction("Registro de Ventas");
         }

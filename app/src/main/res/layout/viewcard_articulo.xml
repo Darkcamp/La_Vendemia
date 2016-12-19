@@ -10,38 +10,55 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center">
+            android:gravity="center"
+            android:weightSum="1"
+            tools:ignore="DisableBaselineAlignment">
 
-            <TextView
-                android:text="Clave Articulo"
+            <TableRow
+                android:layout_width="73dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.20">
+
+                <TextView
+                    android:text="Clave Articulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/claveArt"
+                    android:layout_weight="0.15"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+
+            <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/claveArt"
-                android:layout_weight="0.15"
-                android:textColor="@color/colorPrimary"
-                android:gravity="center"
-                tools:ignore="HardcodedText" />
+                android:layout_height="match_parent"
+                android:layout_weight="0.81">
 
-            <TextView
-                android:text="@string/dscrip_articulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/descrip"
-                android:layout_weight="1.15"
-                android:textColor="@color/colorPrimary"
-                android:gravity="center"
-                tools:ignore="HardcodedText" />
+                <TextView
+                    android:text="@string/dscrip_articulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/descrip"
+                    android:layout_weight="1.15"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
 
-            <TextView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:id="@+id/edit"
-                android:layout_weight="0.13"
-                android:textColor="@color/colorPrimary"
-                android:gravity="center"
-                android:background="@android:drawable/ic_menu_view"
-                android:layout_marginLeft="10dp"
-                tools:ignore="RtlHardcoded" />
+            <TableRow
+                android:layout_width="76dp"
+                android:layout_height="match_parent" >
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    card_view:srcCompat="@android:drawable/ic_menu_view"
+                    android:id="@+id/eidt_artuclob"
+                    android:layout_weight="0.15"
+                    android:contentDescription=""
+                    tools:ignore="ContentDescription" />
+            </TableRow>
 
         </LinearLayout>
 
@@ -49,7 +66,7 @@
             android:text="TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/hiden1"
+            android:id="@+id/id_oculto"
             android:visibility="invisible"
             android:enabled="false"
             tools:ignore="HardcodedText" />

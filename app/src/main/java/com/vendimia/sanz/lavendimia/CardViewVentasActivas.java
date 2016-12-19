@@ -1,7 +1,7 @@
 package com.vendimia.sanz.lavendimia;
 
 /**
- * Created by User-Z on 16/10/2016.
+ *  Created by sanz on 5/12/16.
  */
 import android.annotation.SuppressLint;
 import android.support.v7.widget.RecyclerView;
@@ -13,10 +13,10 @@ import android.widget.TextView;
 import java.util.List;
 
 @SuppressLint("NewApi")
-public class CardViewAdapter extends RecyclerView.Adapter <CardViewAdapter.cardViewAlertasHolder>{
+public class CardViewVentasActivas extends RecyclerView.Adapter <CardViewVentasActivas.cardViewAlertasHolder>{
 
     private List<cardViewDistribute> listaAlertas;
-    public CardViewAdapter(List<cardViewDistribute> alertaInfo) {
+    public CardViewVentasActivas(List<cardViewDistribute> alertaInfo) {
         this.listaAlertas = alertaInfo;
     }
 
@@ -36,7 +36,6 @@ public class CardViewAdapter extends RecyclerView.Adapter <CardViewAdapter.cardV
 
     }
 
-
     public cardViewAlertasHolder onCreateViewHolder(ViewGroup viewGroup,int i) {
 
         View itemView = LayoutInflater.
@@ -44,7 +43,6 @@ public class CardViewAdapter extends RecyclerView.Adapter <CardViewAdapter.cardV
                 inflate(R.layout.viewcard_alertas, viewGroup, false);
         return new cardViewAlertasHolder(itemView);
     }
-
 
     public class cardViewAlertasHolder extends RecyclerView.ViewHolder{
         protected TextView folio,clave,nombre,total,fecha;

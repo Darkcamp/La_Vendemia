@@ -3,130 +3,147 @@ package com.vendimia.sanz.lavendimia;
 /**
  * Created by sanz on 4/12/16.
  */
-
+//manejo de las variables globales para simplificarme el paso entre clases y sus datos
 public class GlobalSetGet {
     public static GlobalSetGet instance;
     //clientes
-    private static String clientes,JSONClientes;
+    private static String clientes, JSONClientes;
     //articulos
-    private static String productos,existencia,JSONProductos,articulos,cantexistente;
+    private static String productos, existencia, JSONProductos, articulos, cantexistente;
     //configuracion y otras
-    private static String URL,tasaF,enganche,pMaximo,fecha,FinalFolio,FinalCliente,finalProducto;
+    private static String URL, tasaF, enganche, pMaximo, fecha, FinalFolio, FinalCliente, finalProducto,valicanti;
     private static double cantidad;
-    private static int tc,tc2;
+    private static int tc, tc2;
 
     //constructor vacio para manejar lo datos independientes
-    private GlobalSetGet(){}
+    private GlobalSetGet() {
+    }
 
-    public void setClientes(String clientes){
+    public void setClientes(String clientes) {
         GlobalSetGet.clientes = clientes;
     }
-    public String getClientes(){
+
+    public String getClientes() {
 
         return GlobalSetGet.clientes;
 
     }
 
-    public void setArticulos(String articulos){
+    public void setArticulos(String articulos) {
         GlobalSetGet.articulos = articulos;
     }
-    public String getArticulos(){
-        return GlobalSetGet.articulos;    }
-    public String getCantexistente(){
+
+    public String getArticulos() {
+        return GlobalSetGet.articulos;
+    }
+
+    public String getCantexistente() {
         return cantexistente;
     }
-    public void setCantexistente(String cantexistente){
+
+    public void setCantexistente(String cantexistente) {
         this.cantexistente = cantexistente;
     }
 
-    public void setURL(String url){
+    public void setURL(String url) {
         GlobalSetGet.URL = url;
     }
-    public String getURL(){
+
+    public String getURL() {
 
         return GlobalSetGet.URL;
 
     }
 
-    public void setTasaF(String tasaF){
+    public void setTasaF(String tasaF) {
         GlobalSetGet.tasaF = tasaF;
     }
-    public String getTasaF(){
+
+    public String getTasaF() {
 
         return GlobalSetGet.tasaF;
 
     }
 
-    public void setEnganche(String enganche){
+    public void setEnganche(String enganche) {
         GlobalSetGet.enganche = enganche;
     }
-    public String getEnganche(){
+
+    public String getEnganche() {
 
         return GlobalSetGet.enganche;
 
     }
 
-    public void setpMaximo(String pMaximo){
+    public void setpMaximo(String pMaximo) {
         GlobalSetGet.pMaximo = pMaximo;
     }
-    public String getpMaximo(){
+
+    public String getpMaximo() {
         return GlobalSetGet.pMaximo;
 
     }
 
-    public void setCantidad(double cantidad){
+    public void setCantidad(double cantidad) {
         GlobalSetGet.cantidad = cantidad;
     }
-    public double getCantidad(){
+
+    public double getCantidad() {
 
         return GlobalSetGet.cantidad;
 
     }
 
-    public void setJSONClientes(String jsonClientes){
+    public void setJSONClientes(String jsonClientes) {
         GlobalSetGet.JSONClientes = jsonClientes;
     }
-    public String getJSONClientes(){
+
+    public String getJSONClientes() {
 
         return GlobalSetGet.JSONClientes;
 
     }
 
-    public void setJSONProductos(String JSONProductos){
+    public void setJSONProductos(String JSONProductos) {
         GlobalSetGet.JSONProductos = JSONProductos;
     }
-    public String getJSONProductos(){
+
+    public String getJSONProductos() {
 
         return GlobalSetGet.JSONProductos;
 
     }
 
-    public void setFecha(String fecha){
+    public void setFecha(String fecha) {
         GlobalSetGet.fecha = fecha;
     }
-    public String getFecha(){
+
+    public String getFecha() {
 
         return GlobalSetGet.fecha;
 
     }
 
-    public void setExistencia(String existencia){
+    public void setExistencia(String existencia) {
         GlobalSetGet.existencia = existencia;
     }
-    public String getExistencia(){
+
+    public String getExistencia() {
 
         return GlobalSetGet.existencia;
 
     }
 
-    public void setProductos(String productos){
+    public void setProductos(String productos) {
         GlobalSetGet.productos = productos;
     }
-    public String getProductos(){
+
+    public String getProductos() {
 
         return GlobalSetGet.productos;
 
     }
+
     public static synchronized GlobalSetGet getInstance() {
 
         if (instance == null) {
@@ -150,18 +167,22 @@ public class GlobalSetGet {
 
 
     public void setTag2(int i) {
-        this.tc2 =i;
+        this.tc2 = i;
     }
-    public void setFinalFolio(String FinalFolio){
+public int getTc2(){return tc2;}
+    public void setFinalFolio(String FinalFolio) {
         this.FinalFolio = FinalFolio;
     }
-    public String getFinalFolio(){
+
+    public String getFinalFolio() {
         return FinalFolio;
     }
-    public void setFinalCliente(String FinalCliente){
+
+    public void setFinalCliente(String FinalCliente) {
         this.FinalCliente = FinalCliente;
     }
-    public String getFinalCliente(){
+
+    public String getFinalCliente() {
         return FinalCliente;
     }
 
@@ -172,4 +193,13 @@ public class GlobalSetGet {
     public String getFinalProduct() {
         return finalProducto;
     }
+    public String getCatidapuesta() {
+        return valicanti;
+    }
+    public void setCatidadpuesta(String valicanti){
+        this.valicanti = valicanti;
+    }
+
+
+
 }

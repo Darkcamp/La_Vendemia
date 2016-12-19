@@ -51,7 +51,7 @@ public class Logins extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        //validamos si existe una configuracion guardad de no ser asi pedimos que guarde una confgracion
         if (SaveSharedPreference.getUserName(Logins.this).length() == 0) {
             SetUp();
         } else
@@ -71,6 +71,7 @@ public class Logins extends AppCompatActivity {
             }
         }
     }
+
     private void SetUp() {
         setContentView(R.layout.primero_pasos);
 
@@ -81,8 +82,6 @@ public class Logins extends AppCompatActivity {
                 configure();
             }
         });
-
-
 
         try {
             jsonData = new JSONObject(rw.Read("data.Vendimia"));

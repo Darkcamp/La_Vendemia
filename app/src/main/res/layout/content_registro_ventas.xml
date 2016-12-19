@@ -87,7 +87,8 @@
                                                  android:ems="10"
                                                  android:id="@+id/AutoCTV_Cliente"
                                                  android:hint="Buscar cliente..."
-                                                 tools:ignore="HardcodedText" />
+                                                 tools:ignore="HardcodedText"
+                                                 android:popupBackground="@color/colorPrimaryDark" />
 
                                              <TextView
                                                  android:layout_width="wrap_content"
@@ -137,7 +138,8 @@
                                                  android:hint="  Buscar Articulo..."
                                                  android:layout_width="157dp"
                                                  android:layout_weight="1.39"
-                                                 tools:ignore="HardcodedText" />
+                                                 tools:ignore="HardcodedText"
+                                                 android:popupBackground="@color/colorPrimaryDark" />
 
                                              <ImageButton
                                                  android:layout_width="wrap_content"
@@ -372,184 +374,195 @@
                                                                  android:textSize="24sp"
                                                                  android:gravity="center_vertical|center" />
 
-                                                             <TableLayout
+                                                             <HorizontalScrollView
                                                                  android:layout_width="match_parent"
-                                                                 android:layout_height="match_parent"
-                                                                 android:background="@android:color/darker_gray"
-                                                                 android:gravity="center">
+                                                                 android:layout_height="match_parent">
 
-                                                                 <TableRow
-                                                                     android:layout_width="match_parent"
-                                                                     android:layout_height="match_parent" >
+                                                                 <LinearLayout
+                                                                     android:layout_width="wrap_content"
+                                                                     android:layout_height="match_parent"
+                                                                     android:orientation="vertical" >
 
-                                                                     <TextView
-                                                                         android:text="@string/abono_T"
-                                                                         android:layout_width="wrap_content"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/abono_3" />
+                                                                     <TableLayout
+                                                                         android:layout_width="match_parent"
+                                                                         android:layout_height="match_parent"
+                                                                         android:background="@android:color/darker_gray"
+                                                                         android:gravity="center">
 
-                                                                     <TextView
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/Ab_resu3"
-                                                                         android:layout_marginLeft="20dp"
-                                                                         android:elevation="1dp"
-                                                                         android:layout_width="80sp"
-                                                                         tools:ignore="RtlHardcoded"
-                                                                         tools:targetApi="lollipop" />
+                                                                         <TableRow
+                                                                             android:layout_width="match_parent"
+                                                                             android:layout_height="match_parent" >
 
-                                                                     <TextView
-                                                                         android:text="@string/ab_total"
-                                                                         android:layout_width="wrap_content"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/ab_pagart3"
-                                                                         android:layout_marginLeft="20dp"
-                                                                         tools:ignore="RtlHardcoded" />
+                                                                             <TextView
+                                                                                 android:text="@string/abono_T"
+                                                                                 android:layout_width="wrap_content"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/abono_3" />
 
-                                                                     <TextView
-                                                                         android:text="@string/ahorroador"
-                                                                         android:layout_width="wrap_content"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/ahorra_3"
-                                                                         android:layout_marginLeft="40dp"
-                                                                         tools:ignore="RtlHardcoded" />
+                                                                             <TextView
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/Ab_resu3"
+                                                                                 android:layout_marginLeft="20dp"
+                                                                                 android:elevation="1dp"
+                                                                                 android:layout_width="80sp"
+                                                                                 tools:ignore="RtlHardcoded"
+                                                                                 tools:targetApi="lollipop" />
 
-                                                                     <RadioButton
-                                                                         android:layout_width="wrap_content"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/ab_rbtn3"
-                                                                         android:layout_marginLeft="40dp"
-                                                                         tools:ignore="RtlHardcoded"
-                                                                         android:onClick="radib" />
-                                                                 </TableRow>
+                                                                             <TextView
+                                                                                 android:text="@string/ab_total"
+                                                                                 android:layout_width="wrap_content"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/ab_pagart3"
+                                                                                 android:layout_marginLeft="20dp"
+                                                                                 tools:ignore="RtlHardcoded" />
 
-                                                                 <TableRow
-                                                                     android:layout_width="match_parent"
-                                                                     android:layout_height="match_parent">
+                                                                             <TextView
+                                                                                 android:text="@string/ahorroador"
+                                                                                 android:layout_width="wrap_content"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/ahorra_3"
+                                                                                 android:layout_marginLeft="40dp"
+                                                                                 tools:ignore="RtlHardcoded" />
 
-                                                                     <TextView
-                                                                         android:text="@string/abono_S"
-                                                                         android:layout_width="wrap_content"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/abono_6" />
+                                                                             <RadioButton
+                                                                                 android:layout_width="wrap_content"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/ab_rbtn3"
+                                                                                 android:layout_marginLeft="40dp"
+                                                                                 tools:ignore="RtlHardcoded"
+                                                                                 android:onClick="radib" />
+                                                                         </TableRow>
 
-                                                                     <TextView
-                                                                         android:layout_width="wrap_content"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/Ab_resu6"
-                                                                         android:layout_marginLeft="20dp"
-                                                                         tools:ignore="RtlHardcoded" />
+                                                                         <TableRow
+                                                                             android:layout_width="match_parent"
+                                                                             android:layout_height="match_parent">
 
-                                                                     <TextView
-                                                                         android:text="@string/ab_total"
-                                                                         android:layout_width="wrap_content"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/ab_pagart6"
-                                                                         android:layout_marginLeft="20dp"
-                                                                         tools:ignore="RtlHardcoded" />
+                                                                             <TextView
+                                                                                 android:text="@string/abono_S"
+                                                                                 android:layout_width="wrap_content"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/abono_6" />
 
-                                                                     <TextView
-                                                                         android:text="@string/ahorroador"
-                                                                         android:layout_width="wrap_content"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/ahorra_6"
-                                                                         android:layout_marginLeft="40dp"
-                                                                         tools:ignore="RtlHardcoded" />
+                                                                             <TextView
+                                                                                 android:layout_width="wrap_content"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/Ab_resu6"
+                                                                                 android:layout_marginLeft="20dp"
+                                                                                 tools:ignore="RtlHardcoded" />
 
-                                                                     <RadioButton
-                                                                         android:layout_width="wrap_content"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/ab_rbtn6"
-                                                                         android:layout_marginLeft="40dp"
-                                                                         tools:ignore="RtlHardcoded"
-                                                                         android:onClick="radib" />
+                                                                             <TextView
+                                                                                 android:text="@string/ab_total"
+                                                                                 android:layout_width="wrap_content"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/ab_pagart6"
+                                                                                 android:layout_marginLeft="20dp"
+                                                                                 tools:ignore="RtlHardcoded" />
 
-                                                                 </TableRow>
+                                                                             <TextView
+                                                                                 android:text="@string/ahorroador"
+                                                                                 android:layout_width="wrap_content"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/ahorra_6"
+                                                                                 android:layout_marginLeft="40dp"
+                                                                                 tools:ignore="RtlHardcoded" />
 
-                                                                 <TableRow
-                                                                     android:layout_width="match_parent"
-                                                                     android:layout_height="match_parent" >
+                                                                             <RadioButton
+                                                                                 android:layout_width="wrap_content"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/ab_rbtn6"
+                                                                                 android:layout_marginLeft="40dp"
+                                                                                 tools:ignore="RtlHardcoded"
+                                                                                 android:onClick="radib" />
 
-                                                                     <TextView
-                                                                         android:text="@string/abono_N"
-                                                                         android:layout_width="wrap_content"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/abono_9" />
+                                                                         </TableRow>
 
-                                                                     <TextView
-                                                                         android:layout_width="80sp"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/Ab_resu9"
-                                                                         android:layout_marginLeft="20dp"
-                                                                         tools:ignore="RtlHardcoded" />
+                                                                         <TableRow
+                                                                             android:layout_width="match_parent"
+                                                                             android:layout_height="match_parent" >
 
-                                                                     <TextView
-                                                                         android:text="@string/ab_total"
-                                                                         android:layout_width="wrap_content"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/ab_pagart9"
-                                                                         android:layout_marginLeft="20dp"
-                                                                         tools:ignore="RtlHardcoded" />
+                                                                             <TextView
+                                                                                 android:text="@string/abono_N"
+                                                                                 android:layout_width="wrap_content"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/abono_9" />
 
-                                                                     <TextView
-                                                                         android:text="@string/ahorroador"
-                                                                         android:layout_width="wrap_content"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/ahorra_9"
-                                                                         android:layout_marginLeft="40dp"
-                                                                         tools:ignore="RtlHardcoded" />
+                                                                             <TextView
+                                                                                 android:layout_width="80sp"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/Ab_resu9"
+                                                                                 android:layout_marginLeft="20dp"
+                                                                                 tools:ignore="RtlHardcoded" />
 
-                                                                     <RadioButton
-                                                                         android:layout_width="wrap_content"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/ab_rbtn9"
-                                                                         android:layout_marginLeft="40dp"
-                                                                         tools:ignore="RtlHardcoded"
-                                                                         android:onClick="radib" />
-                                                                 </TableRow>
+                                                                             <TextView
+                                                                                 android:text="@string/ab_total"
+                                                                                 android:layout_width="wrap_content"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/ab_pagart9"
+                                                                                 android:layout_marginLeft="20dp"
+                                                                                 tools:ignore="RtlHardcoded" />
 
-                                                                 <TableRow
-                                                                     android:layout_width="match_parent"
-                                                                     android:layout_height="match_parent" >
+                                                                             <TextView
+                                                                                 android:text="@string/ahorroador"
+                                                                                 android:layout_width="wrap_content"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/ahorra_9"
+                                                                                 android:layout_marginLeft="40dp"
+                                                                                 tools:ignore="RtlHardcoded" />
 
-                                                                     <TextView
-                                                                         android:text="@string/abono_D"
-                                                                         android:layout_width="wrap_content"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/abono_12" />
+                                                                             <RadioButton
+                                                                                 android:layout_width="wrap_content"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/ab_rbtn9"
+                                                                                 android:layout_marginLeft="40dp"
+                                                                                 tools:ignore="RtlHardcoded"
+                                                                                 android:onClick="radib" />
+                                                                         </TableRow>
 
-                                                                     <TextView
-                                                                         android:layout_width="wrap_content"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/Ab_resu12"
-                                                                         android:layout_marginLeft="20dp"
-                                                                         tools:ignore="RtlHardcoded" />
+                                                                         <TableRow
+                                                                             android:layout_width="match_parent"
+                                                                             android:layout_height="match_parent" >
 
-                                                                     <TextView
-                                                                         android:text="@string/ab_total"
-                                                                         android:layout_width="wrap_content"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/ab_pagart12"
-                                                                         android:layout_marginLeft="20dp"
-                                                                         tools:ignore="RtlHardcoded" />
+                                                                             <TextView
+                                                                                 android:text="@string/abono_D"
+                                                                                 android:layout_width="wrap_content"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/abono_12" />
 
-                                                                     <TextView
-                                                                         android:text="@string/ahorroador"
-                                                                         android:layout_width="wrap_content"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/ahorra_12"
-                                                                         android:layout_marginLeft="40dp"
-                                                                         tools:ignore="RtlHardcoded" />
+                                                                             <TextView
+                                                                                 android:layout_width="wrap_content"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/Ab_resu12"
+                                                                                 android:layout_marginLeft="20dp"
+                                                                                 tools:ignore="RtlHardcoded" />
 
-                                                                     <RadioButton
-                                                                         android:layout_width="wrap_content"
-                                                                         android:layout_height="wrap_content"
-                                                                         android:id="@+id/ab_rbtn12"
-                                                                         android:layout_marginLeft="40dp"
-                                                                         tools:ignore="RtlHardcoded"
-                                                                         android:onClick="radib" />
+                                                                             <TextView
+                                                                                 android:text="@string/ab_total"
+                                                                                 android:layout_width="wrap_content"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/ab_pagart12"
+                                                                                 android:layout_marginLeft="20dp"
+                                                                                 tools:ignore="RtlHardcoded" />
 
-                                                                 </TableRow>
-                                                             </TableLayout>
+                                                                             <TextView
+                                                                                 android:text="@string/ahorroador"
+                                                                                 android:layout_width="wrap_content"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/ahorra_12"
+                                                                                 android:layout_marginLeft="40dp"
+                                                                                 tools:ignore="RtlHardcoded" />
+
+                                                                             <RadioButton
+                                                                                 android:layout_width="wrap_content"
+                                                                                 android:layout_height="wrap_content"
+                                                                                 android:id="@+id/ab_rbtn12"
+                                                                                 android:layout_marginLeft="40dp"
+                                                                                 tools:ignore="RtlHardcoded"
+                                                                                 android:onClick="radib" />
+
+                                                                         </TableRow>
+                                                                     </TableLayout>
+                                                                 </LinearLayout>
+                                                             </HorizontalScrollView>
 
                                                          </LinearLayout>
 

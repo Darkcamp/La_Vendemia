@@ -37,23 +37,31 @@ public class Edit_articulo extends AppCompatActivity implements AsynResponse{
         precio = (EditText) findViewById(R.id.RA_precio);
         modelo = (EditText) findViewById(R.id.RA_modelo);
         existencia = (EditText) findViewById(R.id.RA_existe);
+        clav = (TextView) findViewById(R.id.claveA);
         saved = (Button) findViewById(R.id.guardadito);
         String[] fecha =GSG.getFecha().split("-");
         fech = (TextView) findViewById(R.id.fecha);
         fech.setText("Fecha: "+fecha[0] + "/" + fecha[1] + "/" + fecha[2]);
         clave = GSG.getFinalProduct();
-        clav.append(" "+clave);
+        try{
+       //     clav.append(" "+clave);
+        }catch (Exception e){
+            Log.d("articulos error",e.getMessage());
+
+        }
+    //
 
         String data = getIntent().getStringExtra("data");
-        try {
+       try {
             JSONObject date = new JSONObject(data);
-            existencia.setText(date.getString("existencia").toString());
-            des.setText(date.getString("descripcion"));
-            precio.setText(date.getString("precio"));
-            modelo.setText(date.getString("modelo"));
+            existencia.setText(date.getString("Existencia").toString());
+            des.setText(date.getString("Descripcion"));
+            precio.setText(date.getString("Precio"));
+            modelo.setText(date.getString("Modelo"));
             Log.d("json", date.toString());
-            clav.setText("clave:"+date.getString("clave_articulo"));
-            clave = date.getString("clave_articulo");
+           clave = date.getString("id_Productos");
+            clav.setText("clave:"+clave);
+
         } catch (JSONException e) {
             e.getMessage();
         }
@@ -66,7 +74,7 @@ public class Edit_articulo extends AppCompatActivity implements AsynResponse{
 
         AlertDialog alert = null;
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("¿Esta seguro de salir de la pantalla actual?")
+        builder.setMessage("¿Esta seguro de salir?")
                 .setCancelable(false)
                 .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
@@ -77,7 +85,7 @@ public class Edit_articulo extends AppCompatActivity implements AsynResponse{
                     public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
                         dialog.cancel();
                     }
-                }).setTitle("Alerta!").setIcon(android.R.drawable.ic_menu_report_image).create();
+                }).setTitle("Alerta!").setIcon(android.R.drawable.ic_dialog_alert).create();
         alert = builder.create();
         alert.show();
     }
@@ -97,20 +105,21 @@ public class Edit_articulo extends AppCompatActivity implements AsynResponse{
         }else{
             HashMap postData = new HashMap();
             try {
+                //llamo mi libreria y acedo ala clase server resquest apra enviar parametros atraves del metodo post
                 ServerRequest ser = new ServerRequest(this, this);
                 postData.put("Descripcion", desc);
                 postData.put("Modelo", pre);
                 postData.put("Precio", mod);
                 postData.put("Existencia", exis);
+                postData.put("id",clave);
                 ser.setSendData(postData);
-                ser.execute(GSG.getURL() + "regitro_articulos.php");
+                ser.execute(GSG.getURL() + "modificar_articulo.php");
             }catch(Exception e){
                 Log.d("asdE",e.getMessage());
             }
         }
 
     }
-
 
     @Override
     public void onBackPressed()

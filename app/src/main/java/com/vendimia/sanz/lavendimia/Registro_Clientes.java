@@ -52,11 +52,9 @@ public class Registro_Clientes extends AppCompatActivity implements AsynResponse
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
             }
-
             @Override
             public void afterTextChanged(Editable s) {
                 if (rfc.getText().toString().matches("[A-Z]{4}[0-9]{6}[A-Z0-9]{3}") && s.length() > 0) {

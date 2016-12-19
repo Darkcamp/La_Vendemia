@@ -33,7 +33,7 @@
                     android:inputType="numberDecimal"
                     android:ems="10"
                     android:id="@+id/Tfina"
-                    android:hint="12.."
+                    android:hint="2.8"
                     tools:ignore="HardcodedText"
                     android:maxLength="5" />
 

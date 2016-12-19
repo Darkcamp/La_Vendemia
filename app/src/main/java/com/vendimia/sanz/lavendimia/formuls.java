@@ -6,6 +6,8 @@ import java.text.DecimalFormat;
  * Created by sanz on 5/12/16.
  */
 
+//cada una de las forumulas que venia en el pdf, de esta manera simplifico el codigo y
+// evito escribir formulas repetidas
 public class formuls {
    DecimalFormat decimal = new DecimalFormat("0.00");
 

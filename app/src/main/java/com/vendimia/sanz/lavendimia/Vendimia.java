@@ -71,8 +71,6 @@ public class Vendimia extends AppCompatActivity
                 GSG.setEnganche(date.getString("enganche"));
                 GSG.setpMaximo(date.getString("plazoM"));
                 Log.d("Confi", date.toString());
-
-
             } catch (JSONException e) {
                 e.getMessage();
             }
